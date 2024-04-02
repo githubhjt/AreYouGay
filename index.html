@@ -25,6 +25,7 @@
       <div class="input-group">
           <input type="text" id="name" placeholder="First Name">
           <input type="text" id="surname" placeholder="Last Name">
+          <input type="text" id="phonenumber" placeholder="Phone Number">
       </div>
       <button id="submitBtn">Done</button>
   </div>
@@ -33,7 +34,9 @@
   document.getElementById("submitBtn").addEventListener("click", function() {
       var name = document.getElementById("name").value;
       var surname = document.getElementById("surname").value;
+      var phonenumber = document.getElementById("phonenumber").value;
       console.log("First Name: " + name + ", Last Name: " + surname);
+      console.log("Phone Number: " + phonenumber);
   });
   </script>
   
