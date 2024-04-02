@@ -4,19 +4,24 @@
     <title>Submit Name and Surname</title>
     <style>
         .centered-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
+            display: flex; /* Flex container로 만듭니다 */
+            flex-direction: column; /* 요소들을 세로로 쌓습니다 */
+            justify-content: center; /* 세로 중앙 정렬 */
+            align-items: center; /* 가로 중앙 정렬 */
+            height: 100vh; /* 전체 뷰포트 높이 */
+        }
+        .input-group {
+            display: flex; /* 입력 필드를 나란히 배치하기 위해 flex container로 만듭니다 */
         }
     </style>
 </head>
 <body>
 
 <div class="centered-content">
-    <input type="text" id="name" placeholder="First Name">
-    <input type="text" id="surname" placeholder="Last Name">
+    <div class="input-group">
+        <input type="text" id="name" placeholder="First Name">
+        <input type="text" id="surname" placeholder="Last Name">
+    </div>
     <button id="submitBtn">Done</button>
 </div>
 
