@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Submit Name</title>
+    <title>Submit Name and Surname</title>
     <style>
         .centered-content {
             position: absolute;
@@ -15,14 +15,16 @@
 <body>
 
 <div class="centered-content">
-    <input type="text" id="name" placeholder="Enter your name">
+    <input type="text" id="name" placeholder="First Name">
+    <input type="text" id="surname" placeholder="Last Name">
     <button id="submitBtn">Done</button>
 </div>
 
 <script>
 document.getElementById("submitBtn").addEventListener("click", function() {
     var name = document.getElementById("name").value;
-    console.log(name);
+    var surname = document.getElementById("surname").value;
+    console.log("Name: " + name + ", Surname: " + surname);
 });
 </script>
 
