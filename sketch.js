@@ -4,5 +4,5 @@ function setup() {
 
 function draw() {
   background(220);
-  square(100,100,20,20);
+  square(100,100,30,20);
 }
