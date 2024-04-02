@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Input Field Centered</title>
+    <title>Submit Name</title>
     <style>
         .centered-content {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            text-align: center;
         }
     </style>
 </head>
-<script>
-  document.getElementById("name").addEventListener("change", function() {
-      console.log(this.value);
-  });
-  </script>
-  
 <body>
 
 <div class="centered-content">
     <input type="text" id="name" placeholder="Enter your name">
+    <button id="submitBtn">Done</button>
 </div>
+
+<script>
+document.getElementById("submitBtn").addEventListener("click", function() {
+    var name = document.getElementById("name").value;
+    console.log(name);
+});
+</script>
 
 </body>
 </html>
