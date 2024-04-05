@@ -16,14 +16,14 @@ function setup() {
 
   let yearDropdown = createSelect().addClass('dob-dropdown');
   yearDropdown.option('년도 선택');
-  for (let year = 2024; year >= 1950; year--) { // 내림차순으로 변경
+  for (let year = 2024; year >= 1950; year--) {
     yearDropdown.option(year);
   }
 
   let monthDropdown = createSelect().addClass('dob-dropdown');
   monthDropdown.option('월 선택');
   for (let month = 1; month <= 12; month++) {
-    monthDropdown.option(month < 10 ? '0' + month : month); // 한 자리수일 때 앞에 0 추가
+    monthDropdown.option(month < 10 ? '0' + month : month);
   }
 
   let dayDropdown = createSelect().addClass('dob-dropdown');
@@ -34,6 +34,13 @@ function setup() {
   yearDropdown.parent(dobInputGroup);
   monthDropdown.parent(dobInputGroup);
   dayDropdown.parent(dobInputGroup);
+
+  // 성별 선택 드롭다운 생성
+  let genderDropdown = createSelect().addClass('gender-dropdown');
+  genderDropdown.option('성별 선택');
+  genderDropdown.option('남성');
+  genderDropdown.option('여성');
+  genderDropdown.parent(centeredContent); // 생년월일 바로 아래에 추가
 
   // 전화번호 입력 필드 그룹 생성
   let phoneInputGroup = createDiv('').addClass('input-group');
@@ -81,6 +88,7 @@ function setup() {
   // 그룹을 centeredContent에 추가
   nameInputGroup.parent(centeredContent);
   dobInputGroup.parent(centeredContent);
+  genderDropdown.parent(centeredContent); // 성별 드롭다운을 추가한 부분
   phoneInputGroup.parent(centeredContent);
 
   // 학부 선택 이벤트 리스너 설정
@@ -168,6 +176,7 @@ function setup() {
   submitBtn.mousePressed(() => {
     console.log("이름(풀네임): " + surnameInput.value() + nameInput.value());
     console.log("생년월일: " + yearDropdown.value() + "-" + (monthDropdown.value().length === 1 ? '0' + monthDropdown.value() : monthDropdown.value()) + "-" + dayDropdown.value());
+    console.log("성별: " + genderDropdown.value()); // 성별 출력 추가
     console.log("휴대폰 번호: " + phoneNumberInput1.value() + "-" + phoneNumberInput2.value() + "-" + phoneNumberInput3.value());
     console.log("학부: " + collegeDropdown.value());
     console.log("전공: " + departmentDropdown.value());
