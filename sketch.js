@@ -127,8 +127,8 @@ function setup() {
         break;
     }
 
-    // 전공 선택 드롭다운 메뉴를 학부 선택 드롭다운 메뉴 옆에 추가
-    departmentDropdown.parent(centeredContent);
+    // 전공 선택 드롭다운 메뉴를 학부 선택 드롭다운 메뉴 오른쪽에 추가
+    departmentDropdown.parent(collegeDropdown.parent());
   });
 
   // 그룹을 centeredContent에 추가
@@ -142,7 +142,6 @@ function setup() {
 
   // 버튼 생성 및 이벤트 리스너 설정
   let submitBtn = createButton('완료');
-  submitBtn.parent(centeredContent);
   submitBtn.mousePressed(() => {
     console.log("이름(풀네임): " + surnameInput.value() + nameInput.value());
     console.log("생년월일: " + yearDropdown.value() + "-" + monthDropdown.value() + "-" + dayDropdown.value());
@@ -151,15 +150,6 @@ function setup() {
     console.log("전공: " + departmentDropdown.value());
   });
 
-  // 입력 필드 감시하여 다음 필드로 이동
-  phoneNumberInput1.input(() => {
-    if (phoneNumberInput1.value().length == 3) {
-      phoneNumberInput2.elt.focus();
-    }
-  });
-  phoneNumberInput2.input(() => {
-    if (phoneNumberInput2.value().length == 4) {
-      phoneNumberInput3.elt.focus();
-    }
-  });
+  // 완료 버튼을 모든 항목 맨 아래에 추가
+  submitBtn.parent(centeredContent);
 }
