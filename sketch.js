@@ -30,7 +30,7 @@ function setup() {
   let submitBtn = createButton('완료');
   submitBtn.parent(centeredContent);
   submitBtn.mousePressed(() => {
-    console.log("이름: " + nameInput.value() + " " + surnameInput.value());
+    console.log("이름(풀네임): " + surnameInput.value()+ nameInput.value());
     console.log("휴대폰 번호: " + phoneNumberInput1.value() + "-" + phoneNumberInput2.value() + "-" + phoneNumberInput3.value());
   });
 
