@@ -29,22 +29,88 @@ function setup() {
     collegeDropdown.option(college);
   }
 
-  // 학과 선택 드롭다운 메뉴 생성
+  // 전공 선택 드롭다운 메뉴 생성
   let departmentDropdown = createSelect().addClass('department-dropdown');
   departmentDropdown.option('전공 선택');
-  for (let department of ['연극', '연기', '무용', '영화', '방송영상','디지털아트','실용음악','한국음악','문예창작','극작','사진','시각디자인','공간디자인','광고창작','예술경영','예술창작기초학부']) {
-    departmentDropdown.option(department);
-  }
+  departmentDropdown.attribute('disabled', ''); // 학부가 선택되지 않은 경우 비활성화
 
   // 그룹을 centeredContent에 추가
   nameInputGroup.parent(centeredContent);
   phoneInputGroup.parent(centeredContent);
 
-  // 학부 및 학과 선택 그룹 생성 및 추가
+  // 학부 선택 이벤트 리스너 설정
+  collegeDropdown.changed(() => {
+    departmentDropdown.remove(); // 이전에 선택된 학부의 전공을 제거
+
+    let selectedCollege = collegeDropdown.value(); // 선택된 학부
+
+    // 선택된 학부에 따라 해당하는 전공 옵션을 설정
+    switch (selectedCollege) {
+      case '공연학부':
+        departmentDropdown = createSelect().addClass('department-dropdown');
+        departmentDropdown.option('전공 선택');
+        for (let department of ['연극', '연기', '무용']) {
+          departmentDropdown.option(department);
+        }
+        break;
+      case '영상학부':
+        departmentDropdown = createSelect().addClass('department-dropdown');
+        departmentDropdown.option('전공 선택');
+        for (let department of ['영화', '방송영상', '디지털아트']) {
+          departmentDropdown.option(department);
+        }
+        break;
+      case '음악학부':
+        departmentDropdown = createSelect().addClass('department-dropdown');
+        departmentDropdown.option('전공 선택');
+        for (let department of ['실용음악', '한국음악']) {
+          departmentDropdown.option(department);
+        }
+        break;
+      case '문예학부':
+        departmentDropdown = createSelect().addClass('department-dropdown');
+        departmentDropdown.option('전공 선택');
+        for (let department of ['문예창작', '극작']) {
+          departmentDropdown.option(department);
+        }
+        break;
+      case '디자인학부':
+        departmentDropdown = createSelect().addClass('department-dropdown');
+        departmentDropdown.option('전공 선택');
+        for (let department of ['사진', '시각디자인', '공간디자인']) {
+          departmentDropdown.option(department);
+        }
+        break;
+      case '커뮤티케이션학부':
+        departmentDropdown = createSelect().addClass('department-dropdown');
+        departmentDropdown.option('전공 선택');
+        for (let department of ['광고창작', '예술경영']) {
+          departmentDropdown.option(department);
+        }
+        break;
+      case '예술창작기초학부':
+        departmentDropdown = createSelect().addClass('department-dropdown');
+        departmentDropdown.option('예술창작기초학부');
+        break;
+      default:
+        departmentDropdown = createSelect().addClass('department-dropdown');
+        departmentDropdown.option('전공 선택');
+        departmentDropdown.attribute('disabled', ''); // 학부가 선택되지 않은 경우 비활성화
+        break;
+    }
+
+    // 전공 선택 드롭다운 메뉴를 centeredContent에 추가
+    departmentDropdown.parent(centeredContent);
+  });
+
+  // 그룹을 centeredContent에 추가
+  collegeDropdown.parent(centeredContent);
+
+  // 학부 및 전공 선택 그룹 생성 및 추가
   let selectGroup = createDiv('').addClass('select-group');
+  selectGroup.parent(centeredContent);
   collegeDropdown.parent(selectGroup);
   departmentDropdown.parent(selectGroup);
-  selectGroup.parent(centeredContent);
 
   // 버튼 생성 및 이벤트 리스너 설정
   let submitBtn = createButton('완료');
