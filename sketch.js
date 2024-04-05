@@ -29,7 +29,7 @@ function setup() {
     collegeDropdown.option(college);
   }
 
-  // 전공 선택 드롭다운 메뉴 생성
+  // 전공 선택 드롭다운 메뉴 생성 (비활성화)
   let departmentDropdown = createSelect().addClass('department-dropdown');
   departmentDropdown.option('전공 선택');
   departmentDropdown.attribute('disabled', ''); // 학부가 선택되지 않은 경우 비활성화
@@ -99,18 +99,15 @@ function setup() {
         break;
     }
 
-    // 전공 선택 드롭다운 메뉴를 centeredContent에 추가
-    departmentDropdown.parent(centeredContent);
+    // 전공 선택 드롭다운 메뉴를 학부 선택 드롭다운 메뉴 옆에 추가
+    departmentDropdown.parent(selectGroup);
   });
-
-  // 그룹을 centeredContent에 추가
-  collegeDropdown.parent(centeredContent);
 
   // 학부 및 전공 선택 그룹 생성 및 추가
   let selectGroup = createDiv('').addClass('select-group');
-  selectGroup.parent(centeredContent);
   collegeDropdown.parent(selectGroup);
   departmentDropdown.parent(selectGroup);
+  selectGroup.parent(centeredContent);
 
   // 버튼 생성 및 이벤트 리스너 설정
   let submitBtn = createButton('완료');
