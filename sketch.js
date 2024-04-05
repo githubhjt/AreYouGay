@@ -22,25 +22,29 @@ function setup() {
   createSpan('-').parent(phoneInputGroup).style('margin', '0 10px'); // "-" 추가 및 스타일링
   phoneNumberInput3.parent(phoneInputGroup);
 
-  // 학과 선택 드롭다운 메뉴 생성
+  // 학부 선택 드롭다운 메뉴 생성
   let collegeDropdown = createSelect().addClass('college-dropdown');
   collegeDropdown.option('학부 선택');
   for (let college of ['공연학부', '영상학부', '음악학부', '문예학부', '디자인학부', '커뮤티케이션학부', '예술창작기초학부']) {
     collegeDropdown.option(college);
   }
 
-  // 학부 선택 드롭다운 메뉴 생성
+  // 학과 선택 드롭다운 메뉴 생성
   let departmentDropdown = createSelect().addClass('department-dropdown');
-  departmentDropdown.option('학과 선택');
-  for (let department of ['연극전공', '연기전공', '무용전공', '영화전공', '방송영상전공','디지털아트전공','실용음악전공','한국음악전공','문예창작전공','극작전공','사진전공','시각디자인전공','공간디자인전공','광고창작전공','예술경영전공','예술창작기초학부']) {
+  departmentDropdown.option('전공 선택');
+  for (let department of ['연극', '연기', '무용', '영화', '방송영상','디지털아트','실용음악','한국음악','문예창작','극작','사진','시각디자인','공간디자인','광고창작','예술경영','예술창작기초학부']) {
     departmentDropdown.option(department);
   }
 
   // 그룹을 centeredContent에 추가
   nameInputGroup.parent(centeredContent);
   phoneInputGroup.parent(centeredContent);
-  collegeDropdown.parent(centeredContent);
-  departmentDropdown.parent(centeredContent);
+
+  // 학부 및 학과 선택 그룹 생성 및 추가
+  let selectGroup = createDiv('').addClass('select-group');
+  collegeDropdown.parent(selectGroup);
+  departmentDropdown.parent(selectGroup);
+  selectGroup.parent(centeredContent);
 
   // 버튼 생성 및 이벤트 리스너 설정
   let submitBtn = createButton('완료');
@@ -49,7 +53,7 @@ function setup() {
     console.log("이름(풀네임): " + surnameInput.value() + nameInput.value());
     console.log("휴대폰 번호: " + phoneNumberInput1.value() + "-" + phoneNumberInput2.value() + "-" + phoneNumberInput3.value());
     console.log("학부: " + collegeDropdown.value());
-    console.log("학과: " + departmentDropdown.value());
+    console.log("전공: " + departmentDropdown.value());
   });
 
   // 입력 필드 감시하여 다음 필드로 이동
