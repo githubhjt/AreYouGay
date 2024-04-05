@@ -11,6 +11,25 @@ function setup() {
   nameInput.parent(nameInputGroup);
   surnameInput.parent(nameInputGroup);
 
+  // 생년월일 입력 드롭다운 생성
+  let yearDropdown = createSelect().addClass('dob-dropdown');
+  yearDropdown.option('년도 선택');
+  for (let year = 1950; year <= 2015; year++) {
+    yearDropdown.option(year);
+  }
+
+  let monthDropdown = createSelect().addClass('dob-dropdown');
+  monthDropdown.option('월 선택');
+  for (let month = 1; month <= 12; month++) {
+    monthDropdown.option(month);
+  }
+
+  let dayDropdown = createSelect().addClass('dob-dropdown');
+  dayDropdown.option('일 선택');
+  for (let day = 1; day <= 31; day++) {
+    dayDropdown.option(day);
+  }
+
   // 전화번호 입력 필드 그룹 생성
   let phoneInputGroup = createDiv('').addClass('input-group');
   let phoneNumberInput1 = createInput('').attribute('maxlength', '3').attribute('placeholder', '010').addClass('phone-input');
@@ -36,17 +55,19 @@ function setup() {
 
   // 그룹을 centeredContent에 추가
   nameInputGroup.parent(centeredContent);
+  yearDropdown.parent(centeredContent);
+  monthDropdown.parent(centeredContent);
+  dayDropdown.parent(centeredContent);
   phoneInputGroup.parent(centeredContent);
 
   // 학부 선택 이벤트 리스너 설정
   collegeDropdown.changed(() => {
-    departmentDropdown.remove(); // 이전에 선택된 학부의 전공을 제거
-
     let selectedCollege = collegeDropdown.value(); // 선택된 학부
 
     // 선택된 학부에 따라 해당하는 전공 옵션을 설정
     switch (selectedCollege) {
       case '공연학부':
+        departmentDropdown.remove(); // 이전에 선택된 학부의 전공을 제거
         departmentDropdown = createSelect().addClass('department-dropdown');
         departmentDropdown.option('전공 선택');
         for (let department of ['연극', '연기', '무용']) {
@@ -54,6 +75,7 @@ function setup() {
         }
         break;
       case '영상학부':
+        departmentDropdown.remove(); // 이전에 선택된 학부의 전공을 제거
         departmentDropdown = createSelect().addClass('department-dropdown');
         departmentDropdown.option('전공 선택');
         for (let department of ['영화', '방송영상', '디지털아트']) {
@@ -61,6 +83,7 @@ function setup() {
         }
         break;
       case '음악학부':
+        departmentDropdown.remove(); // 이전에 선택된 학부의 전공을 제거
         departmentDropdown = createSelect().addClass('department-dropdown');
         departmentDropdown.option('전공 선택');
         for (let department of ['실용음악', '한국음악']) {
@@ -68,6 +91,7 @@ function setup() {
         }
         break;
       case '문예학부':
+        departmentDropdown.remove(); // 이전에 선택된 학부의 전공을 제거
         departmentDropdown = createSelect().addClass('department-dropdown');
         departmentDropdown.option('전공 선택');
         for (let department of ['문예창작', '극작']) {
@@ -75,6 +99,7 @@ function setup() {
         }
         break;
       case '디자인학부':
+        departmentDropdown.remove(); // 이전에 선택된 학부의 전공을 제거
         departmentDropdown = createSelect().addClass('department-dropdown');
         departmentDropdown.option('전공 선택');
         for (let department of ['사진', '시각디자인', '공간디자인']) {
@@ -82,6 +107,7 @@ function setup() {
         }
         break;
       case '커뮤티케이션학부':
+        departmentDropdown.remove(); // 이전에 선택된 학부의 전공을 제거
         departmentDropdown = createSelect().addClass('department-dropdown');
         departmentDropdown.option('전공 선택');
         for (let department of ['광고창작', '예술경영']) {
@@ -89,10 +115,12 @@ function setup() {
         }
         break;
       case '예술창작기초학부':
+        departmentDropdown.remove(); // 이전에 선택된 학부의 전공을 제거
         departmentDropdown = createSelect().addClass('department-dropdown');
         departmentDropdown.option('예술창작기초학부');
         break;
       default:
+        departmentDropdown.remove(); // 이전에 선택된 학부의 전공을 제거
         departmentDropdown = createSelect().addClass('department-dropdown');
         departmentDropdown.option('전공 선택');
         departmentDropdown.attribute('disabled', ''); // 학부가 선택되지 않은 경우 비활성화
@@ -100,20 +128,24 @@ function setup() {
     }
 
     // 전공 선택 드롭다운 메뉴를 학부 선택 드롭다운 메뉴 옆에 추가
-    departmentDropdown.parent(selectGroup);
+    departmentDropdown.parent(centeredContent);
   });
+
+  // 그룹을 centeredContent에 추가
+  collegeDropdown.parent(centeredContent);
 
   // 학부 및 전공 선택 그룹 생성 및 추가
   let selectGroup = createDiv('').addClass('select-group');
+  selectGroup.parent(centeredContent);
   collegeDropdown.parent(selectGroup);
   departmentDropdown.parent(selectGroup);
-  selectGroup.parent(centeredContent);
 
   // 버튼 생성 및 이벤트 리스너 설정
   let submitBtn = createButton('완료');
   submitBtn.parent(centeredContent);
   submitBtn.mousePressed(() => {
     console.log("이름(풀네임): " + surnameInput.value() + nameInput.value());
+    console.log("생년월일: " + yearDropdown.value() + "-" + monthDropdown.value() + "-" + dayDropdown.value());
     console.log("휴대폰 번호: " + phoneNumberInput1.value() + "-" + phoneNumberInput2.value() + "-" + phoneNumberInput3.value());
     console.log("학부: " + collegeDropdown.value());
     console.log("전공: " + departmentDropdown.value());
