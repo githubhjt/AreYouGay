@@ -16,7 +16,7 @@ function setup() {
 
   let yearDropdown = createSelect().addClass('dob-dropdown');
   yearDropdown.option('년도 선택');
-  for (let year = 2015; year >= 1950; year--) { // 내림차순으로 변경
+  for (let year = 2024; year >= 1950; year--) { // 내림차순으로 변경
     yearDropdown.option(year);
   }
 
