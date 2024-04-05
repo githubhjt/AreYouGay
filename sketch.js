@@ -13,9 +13,10 @@ function setup() {
 
   // 생년월일 입력 드롭다운 생성
   let dobInputGroup = createDiv('').addClass('input-group');
+
   let yearDropdown = createSelect().addClass('dob-dropdown');
   yearDropdown.option('년도 선택');
-  for (let year = 1950; year <= 2015; year++) {
+  for (let year = 2024; year >= 1950; year--) { // 내림차순으로 변경
     yearDropdown.option(year);
   }
 
