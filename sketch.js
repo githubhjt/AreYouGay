@@ -40,6 +40,26 @@ function setup() {
   let phoneNumberInput1 = createInput('').attribute('maxlength', '3').attribute('placeholder', '010').addClass('phone-input');
   let phoneNumberInput2 = createInput('').attribute('maxlength', '4').attribute('placeholder', 'XXXX').addClass('phone-input');
   let phoneNumberInput3 = createInput('').attribute('maxlength', '4').attribute('placeholder', 'XXXX').addClass('phone-input');
+
+  // 전화번호 입력 시 다음 칸으로 포커스 이동하는 이벤트 리스너 추가
+  phoneNumberInput1.input(() => {
+    if (phoneNumberInput1.value().length === 3) {
+      phoneNumberInput2.elt.focus(); // phoneNumberInput2에 포커스를 설정합니다.
+    }
+  });
+
+  phoneNumberInput2.input(() => {
+    if (phoneNumberInput2.value().length === 4) {
+      phoneNumberInput3.elt.focus(); // phoneNumberInput3에 포커스를 설정합니다.
+    }
+  });
+
+  phoneNumberInput3.input(() => {
+    if (phoneNumberInput3.value().length === 4) {
+      // 포커스 이동이 필요 없으므로 아무 작업도 하지 않습니다.
+    }
+  });
+
   phoneNumberInput1.parent(phoneInputGroup);
   createSpan('-').parent(phoneInputGroup).style('margin', '0 10px'); // "-" 추가 및 스타일링
   phoneNumberInput2.parent(phoneInputGroup);
