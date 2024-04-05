@@ -9,11 +9,11 @@ function setup() {
   let inputGroup2 = createDiv('').addClass('input-group');
 
   // 이름 입력 필드 생성
-  let nameInput = createInput('').attribute('placeholder', 'First Name');
-  let surnameInput = createInput('').attribute('placeholder', 'Last Name');
+  let nameInput = createInput('').attribute('placeholder', '이름');
+  let surnameInput = createInput('').attribute('placeholder', '성');
 
   // 전화번호 입력 필드 생성
-  let phoneNumberInput = createInput('').attribute('placeholder', 'Phone Number');
+  let phoneNumberInput = createInput('').attribute('placeholder', '휴대폰 번호');
 
   // 입력 필드를 그룹에 추가
   nameInput.parent(inputGroup1);
@@ -25,11 +25,11 @@ function setup() {
   inputGroup2.parent(centeredContent);
 
   // 버튼 생성 및 이벤트 리스너 설정
-  let submitBtn = createButton('Done');
+  let submitBtn = createButton('완료');
   submitBtn.parent(centeredContent);
   submitBtn.mousePressed(() => {
-    console.log("First Name: " + nameInput.value());
-    console.log("Last Name: " + surnameInput.value());
-    console.log("Phone Number: " + phoneNumberInput.value());
+    console.log("이름: " + nameInput.value());
+    console.log("성: " + surnameInput.value());
+    console.log("휴대폰 번호: " + phoneNumberInput.value());
   });
 }
