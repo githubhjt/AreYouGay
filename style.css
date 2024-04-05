@@ -12,3 +12,11 @@ canvas {
   justify-content: center;
   height: 100vh;
 }
+.input-group {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px; /* 입력 필드 사이의 간격 조절 */
+}
+.input-group input {
+  margin-right: 10px; /* 입력 필드 간의 간격 조절 */
+}
