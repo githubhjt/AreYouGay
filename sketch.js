@@ -12,6 +12,7 @@ function setup() {
   surnameInput.parent(nameInputGroup);
 
   // 생년월일 입력 드롭다운 생성
+  let dobInputGroup = createDiv('').addClass('input-group');
   let yearDropdown = createSelect().addClass('dob-dropdown');
   yearDropdown.option('년도 선택');
   for (let year = 1950; year <= 2015; year++) {
@@ -29,6 +30,9 @@ function setup() {
   for (let day = 1; day <= 31; day++) {
     dayDropdown.option(day);
   }
+  yearDropdown.parent(dobInputGroup);
+  monthDropdown.parent(dobInputGroup);
+  dayDropdown.parent(dobInputGroup);
 
   // 전화번호 입력 필드 그룹 생성
   let phoneInputGroup = createDiv('').addClass('input-group');
@@ -55,9 +59,7 @@ function setup() {
 
   // 그룹을 centeredContent에 추가
   nameInputGroup.parent(centeredContent);
-  yearDropdown.parent(centeredContent);
-  monthDropdown.parent(centeredContent);
-  dayDropdown.parent(centeredContent);
+  dobInputGroup.parent(centeredContent);
   phoneInputGroup.parent(centeredContent);
 
   // 학부 선택 이벤트 리스너 설정
