@@ -16,14 +16,14 @@ function setup() {
 
   let yearDropdown = createSelect().addClass('dob-dropdown');
   yearDropdown.option('년도 선택');
-  for (let year = 2024; year >= 1950; year--) { // 내림차순으로 변경
+  for (let year = 2015; year >= 1950; year--) { // 내림차순으로 변경
     yearDropdown.option(year);
   }
 
   let monthDropdown = createSelect().addClass('dob-dropdown');
   monthDropdown.option('월 선택');
   for (let month = 1; month <= 12; month++) {
-    monthDropdown.option(month);
+    monthDropdown.option(month < 10 ? '0' + month : month); // 한 자리수일 때 앞에 0 추가
   }
 
   let dayDropdown = createSelect().addClass('dob-dropdown');
@@ -147,7 +147,7 @@ function setup() {
   let submitBtn = createButton('완료');
   submitBtn.mousePressed(() => {
     console.log("이름(풀네임): " + surnameInput.value() + nameInput.value());
-    console.log("생년월일: " + yearDropdown.value() + "-" + monthDropdown.value() + "-" + dayDropdown.value());
+    console.log("생년월일: " + yearDropdown.value() + "-" + (monthDropdown.value().length === 1 ? '0' + monthDropdown.value() : monthDropdown.value()) + "-" + dayDropdown.value());
     console.log("휴대폰 번호: " + phoneNumberInput1.value() + "-" + phoneNumberInput2.value() + "-" + phoneNumberInput3.value());
     console.log("학부: " + collegeDropdown.value());
     console.log("전공: " + departmentDropdown.value());
