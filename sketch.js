@@ -79,12 +79,13 @@ function setup() {
   // 그룹 8: 완료 버튼
   let submitBtn = createButton('Confirm').addClass('submit-btn'); // submit-btn 클래스 추가
   // 완료 버튼 클릭 시 실행되는 함수
+// 완료 버튼 클릭 시 실행되는 함수
 submitBtn.mousePressed(() => {
   // 필수 입력 필드가 모두 입력되었는지 확인
   let isAnyFieldEmpty =
     nameInput.value() === '' ||
     surnameInput.value() === '' ||
-    genderDropdown.value() === '성별 (Gender)' ||
+    genderDropdown.value() === 'Gender' || // 수정된 부분
     dobInput.value() === '' ||
     studentIdInput.value() === '' ||
     departmentDropdown.value() === '학부 (Department)' ||
@@ -93,7 +94,7 @@ submitBtn.mousePressed(() => {
   // 필수 입력 필드가 비어 있으면 해당 필드의 테두리 색을 빨간색으로 변경
   nameInput.style('border-color', nameInput.value() === '' ? 'red' : '');
   surnameInput.style('border-color', surnameInput.value() === '' ? 'red' : '');
-  genderDropdown.style('border-color', genderDropdown.value() === '성별 (Gender)' ? 'red' : '');
+  genderDropdown.style('border-color', genderDropdown.value() === 'Gender' ? 'red' : ''); // 수정된 부분
   dobInput.style('border-color', dobInput.value() === '' ? 'red' : '');
   studentIdInput.style('border-color', studentIdInput.value() === '' ? 'red' : '');
   departmentDropdown.style('border-color', departmentDropdown.value() === '학부 (Department)' ? 'red' : '');
