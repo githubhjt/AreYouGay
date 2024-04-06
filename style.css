@@ -1,3 +1,9 @@
+/* Dark theme */
+body {
+  background-color: #1a1a1a; /* Dark background color */
+  color: #ffffff; /* Light text color */
+}
+
 /* 중앙 정렬을 위한 컨테이너 */
 .centered-content {
   text-align: center;
@@ -10,13 +16,14 @@
 .dob-dropdown,
 .student-id-input,
 .department-dropdown,
-.major-dropdown,
-.submit-btn {
+.major-dropdown {
   width: calc(100% - 30px); /* 입력 필드 너비 조정 */
   margin-bottom: 15px; /* 각 입력 필드 밑 간격 조정 */
   padding: 15px; /* 패딩 크기 조정 */
-  border: 2px solid #ddd; /* 테두리 두께와 색상 조정 */
-  border-radius: 5px;
+  border: 2px solid transparent; /* 테두리 두께 설정 및 투명색으로 초기화 */
+  border-radius: 25px; /* 테두리를 둥글게 조정 */
+  background-color: #333333; /* 배경색 설정 (Dark Gray) */
+  color: #ffffff; /* 텍스트 색상 설정 */
   box-sizing: border-box;
   font-family: 'Arial', sans-serif; /* Sans-serif 폰트 설정 */
   font-size: 16px; /* 폰트 크기 조정 */
@@ -26,17 +33,23 @@
 .submit-btn {
   width: calc(100% - 30px); /* 버튼 너비 조정 */
   margin-bottom: 0; /* 완료 버튼의 밑 간격 제거 */
-  background-color: #2f9eff; /* 배경색 설정 */
-  color: white; /* 텍스트 색상 설정 */
-  border: none; /* 테두리 제거 */
-  border-radius: 5px; /* 버튼 모서리를 라운드로 조정 */
+  padding: 15px; /* 패딩 크기 조정 */
+  background-color: #8b0000; /* 배경색 설정 (Darker Blood Red) */
+  color: #ffffff; /* 텍스트 색상 설정 */
+  border: 2px solid transparent; /* 테두리 두께 설정 및 투명색으로 초기화 */
+  border-radius: 25px; /* 버튼 모서리를 둥글게 조정 */
   cursor: pointer; /* 마우스 커서를 포인터로 변경 */
   font-family: 'Arial', sans-serif; /* Sans-serif 폰트 설정 */
-  font-size: 16px; /* 폰트 크기 조정 */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+  font-size: 18px; /* 폰트 크기 조정 */
   transition: background-color 0.3s; /* 배경색 변경 시 부드러운 전환 적용 */
 }
 
+/* 완료 버튼 호버 시 배경색 변경 */
 .submit-btn:hover {
-  background-color: #45a049; /* 마우스 호버 시 배경색 변경 */
+  background-color: #a30000; /* 마우스 호버 시 배경색 변경 (Even Darker Blood Red) */
+}
+
+/* 필수 입력 필드가 누락된 경우 빨간색 테두리 설정 */
+.required-field:invalid {
+  border-color: #8b0000; /* Blood Red */
 }
