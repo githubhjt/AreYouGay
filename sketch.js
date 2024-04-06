@@ -98,47 +98,51 @@ function setup() {
     }
   });
 
-  // 그룹 8: 완료 버튼
-  let submitBtn = createButton('완료');
-  submitBtn.mousePressed(() => {
-    // 필수 입력 필드가 모두 입력되었는지 확인
-    let isAnyFieldEmpty =
-      nameInput.value() === '' ||
-      surnameInput.value() === '' ||
-      genderDropdown.value() === '성별 (Gender)' ||
-      yearDropdown.value() === '년도 (YY)' ||
-      monthDropdown.value() === '월 (MM)' ||
-      dayDropdown.value() === '일 (DD)' ||
-      studentIdInput.value() === '' ||
-      collegeDropdown.value() === '학부 선택' ||
-      departmentDropdown.value() === '전공 (Department)';
+// 그룹 8: 완료 버튼
+let submitBtn = createButton('완료');
+submitBtn.mousePressed(() => {
+  // 필수 입력 필드가 모두 입력되었는지 확인
+  let isAnyFieldEmpty =
+    nameInput.value() === '' ||
+    surnameInput.value() === '' ||
+    genderDropdown.value() === '성별 (Gender)' ||
+    yearDropdown.value() === '년도 (YY)' ||
+    monthDropdown.value() === '월 (MM)' ||
+    dayDropdown.value() === '일 (DD)' ||
+    studentIdInput.value() === '' ||
+    collegeDropdown.value() === '학부 선택' ||
+    departmentDropdown.value() === '전공 (Department)';
 
-    // 필수 입력 필드가 비어 있으면 해당 필드의 테두리 색을 빨간색으로 변경
-    nameInput.style('border-color', nameInput.value() === '' ? 'red' : '');
-    surnameInput.style('border-color', surnameInput.value() === '' ? 'red' : '');
-    genderDropdown.style('border-color', genderDropdown.value() === '성별 (Gender)' ? 'red' : '');
-    yearDropdown.style('border-color', yearDropdown.value() === '년도 (YY)' ? 'red' : '');
-    monthDropdown.style('border-color', monthDropdown.value() === '월 (MM)' ? 'red' : '');
-    dayDropdown.style('border-color', dayDropdown.value() === '일 (DD)' ? 'red' : '');
-    studentIdInput.style('border-color', studentIdInput.value() === '' ? 'red' : '');
-    collegeDropdown.style('border-color', collegeDropdown.value() === '학부 선택' ? 'red' : '');
-    departmentDropdown.style('border-color', departmentDropdown.value() === '전공 (Department)' ? 'red' : '');
+  // 필수 입력 필드가 비어 있으면 해당 필드의 테두리 색을 빨간색으로 변경
+  nameInput.style('border-color', nameInput.value() === '' ? 'red' : '');
+  surnameInput.style('border-color', surnameInput.value() === '' ? 'red' : '');
+  genderDropdown.style('border-color', genderDropdown.value() === '성별 (Gender)' ? 'red' : '');
+  yearDropdown.style('border-color', yearDropdown.value() === '년도 (YY)' ? 'red' : '');
+  monthDropdown.style('border-color', monthDropdown.value() === '월 (MM)' ? 'red' : '');
+  dayDropdown.style('border-color', dayDropdown.value() === '일 (DD)' ? 'red' : '');
+  studentIdInput.style('border-color', studentIdInput.value() === '' ? 'red' : '');
+  collegeDropdown.style('border-color', collegeDropdown.value() === '학부 선택' ? 'red' : '');
+  departmentDropdown.style('border-color', departmentDropdown.value() === '전공 (Department)' ? 'red' : '');
 
-    // 필수 입력 필드가 하나라도 비어 있으면 팝업창 띄움
-    if (isAnyFieldEmpty) {
-      alert('정보를 모두 입력해주세요.');
-      return;
-    }
+  // 필수 입력 필드가 하나라도 비어 있으면 팝업창 띄움
+  if (isAnyFieldEmpty) {
+    alert('정보를 모두 입력해주세요.');
+    return;
+  }
 
-    // 모든 필드가 입력되었을 때 실행할 동작 작성
-    console.log("이름(풀네임): " + surnameInput.value() + nameInput.value());
-    console.log("성별: " + genderDropdown.value());
-    console.log("생년월일: " + yearDropdown.value() + "-" + (monthDropdown.value().length === 1 ? '0' + monthDropdown.value() : monthDropdown.value()) + "-" + dayDropdown.value());
-    console.log("학번: " + studentIdInput.value());
-    console.log("학부: " + collegeDropdown.value());
-    console.log("전공: " + departmentDropdown.value());
-  });
-  submitBtn.parent(centeredContent);
+  // 모든 필드가 입력되었을 때 실행할 동작 작성
+  console.log("이름(풀네임): " + surnameInput.value() + nameInput.value());
+  console.log("성별: " + genderDropdown.value());
+  console.log("생년월일: " + yearDropdown.value() + "-" + (monthDropdown.value().length === 1 ? '0' + monthDropdown.value() : monthDropdown.value()) + "-" + dayDropdown.value());
+  console.log("학번: " + studentIdInput.value());
+  console.log("학부: " + collegeDropdown.value());
+  console.log("전공: " + departmentDropdown.value());
+
+  // 정보를 성공적으로 입력한 메시지 출력
+  alert('정보를 성공적으로 입력하였습니다.');
+});
+submitBtn.parent(centeredContent);
+
 
   // 전공 선택 드롭다운을 활성화하고 해당하는 전공 옵션을 추가하는 함수
   function enableDepartmentDropdown(departments) {
