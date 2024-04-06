@@ -49,3 +49,9 @@ select {
 .required-field:invalid {
   border-color: #8b0000; /* Blood Red */
 }
+
+/* 비활성화된 입력 필드 및 드롭다운 메뉴 */
+.input-field:disabled,
+select:disabled {
+  opacity: 0.2; /* 비활성화된 요소의 투명도 조정 */
+}
