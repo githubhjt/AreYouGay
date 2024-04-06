@@ -30,7 +30,7 @@
   box-sizing: border-box;
   font-family: 'Arial', sans-serif; /* Sans-serif 폰트 설정 */
   font-size: 16px; /* 폰트 크기 조정 */
-  margin-bottom: 50px;
+  margin-bottom: 35px;
 }
 
 /* 년도, 월, 일 선택 드롭다운 */
@@ -42,7 +42,7 @@
   box-sizing: border-box;
   font-family: 'Arial', sans-serif; /* Sans-serif 폰트 설정 */
   font-size: 16px; /* 폰트 크기 조정 */
-  margin-bottom: 50px;
+  margin-bottom: 35px;
 }
 
 /* 학번 입력 필드 */
@@ -78,6 +78,7 @@
   font-size: 16px; /* 폰트 크기 조정 */
   color: #555; /* 텍스트 색상 조정 */
   background-color: #fff; /* 배경색 설정 */
+  margin-bottom: 50px;
 }
 
 
