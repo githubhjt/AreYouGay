@@ -6,29 +6,29 @@ function setup() {
 
   // 그룹 1: 이름 입력 필드
   let nameInputGroup = createDiv('').addClass('input-group');
-  let nameInput = createInput('').attribute('placeholder', '이름 (First Name)').addClass('required-field').addClass('input-field');
+  let nameInput = createInput('').attribute('placeholder', 'First Name').addClass('required-field').addClass('input-field');
   nameInput.parent(nameInputGroup);
   nameInputGroup.parent(centeredContent);
 
   // 그룹 2: 성 입력 필드
   let surnameInputGroup = createDiv('').addClass('input-group');
-  let surnameInput = createInput('').attribute('placeholder', '성 (Last Name)').addClass('required-field').addClass('input-field');
+  let surnameInput = createInput('').attribute('placeholder', 'Last Name').addClass('required-field').addClass('input-field');
   surnameInput.parent(surnameInputGroup);
   surnameInputGroup.parent(centeredContent);
 
   // 그룹 3: 성별 선택 드롭다운
   let genderDropdown = createSelect().addClass('gender-dropdown').addClass('required-field').addClass('input-field');
-  genderDropdown.option('성별 (Gender)');
-  genderDropdown.option('남성 (Male)');
-  genderDropdown.option('여성 (Female)');
+  genderDropdown.option('Gender');
+  genderDropdown.option('Male');
+  genderDropdown.option('Female');
   genderDropdown.parent(centeredContent);
 
   // 그룹 4: 생년월일 입력 필드
-  let dobInput = createInput('').attribute('type', 'text').attribute('placeholder', '생년월일 (YYYY-MM-DD)').addClass('required-field').addClass('input-field');
+  let dobInput = createInput('').attribute('type', 'text').attribute('placeholder', 'Birth (YYYY-MM-DD)').addClass('required-field').addClass('input-field');
   dobInput.parent(centeredContent);
 
   // 그룹 5: 학번 입력 필드
-  let studentIdInput = createInput('').attribute('placeholder', '학번 (Student ID)').addClass('required-field').addClass('input-field');
+  let studentIdInput = createInput('').attribute('placeholder', 'Student ID').addClass('required-field').addClass('input-field');
   studentIdInput.parent(centeredContent);
 
   // 그룹 6: 학부 선택 드롭다운

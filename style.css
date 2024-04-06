@@ -17,7 +17,7 @@ select {
   margin-bottom: 15px; /* 각 입력 필드 밑 간격 조정 */
   padding: 15px; /* 패딩 크기 조정 */
   border: 2px solid transparent; /* 테두리 두께 설정 및 투명색으로 초기화 */
-  border-radius: 25px; /* 테두리를 둥글게 조정 */
+  border-radius: 15px; /* 테두리를 둥글게 조정 */
   background-color: #333333; /* 배경색 설정 (Dark Gray) */
   color: #767676; /* 텍스트 색상 설정 */
   box-sizing: border-box;
@@ -33,7 +33,7 @@ select {
   background-color: #8b0000; /* 배경색 설정 (Darker Blood Red) */
   color: #ffffff; /* 텍스트 색상 설정 */
   border: 2px solid transparent; /* 테두리 두께 설정 및 투명색으로 초기화 */
-  border-radius: 25px; /* 버튼 모서리를 둥글게 조정 */
+  border-radius: 30px; /* 버튼 모서리를 둥글게 조정 */
   cursor: pointer; /* 마우스 커서를 포인터로 변경 */
   font-family: 'Arial', sans-serif; /* Sans-serif 폰트 설정 */
   font-size: 18px; /* 폰트 크기 조정 */
