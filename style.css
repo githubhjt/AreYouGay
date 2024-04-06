@@ -15,8 +15,19 @@ canvas {
 .input-group {
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin-bottom: 10px; /* 입력 필드 사이의 간격 조절 */
 }
-.input-group input {
+.input-group input,
+.input-group select {
   margin-right: 10px; /* 입력 필드 간의 간격 조절 */
+}
+.gender-dropdown {
+  margin-bottom: 10px; /* 성별 선택 드롭다운과 다음 요소 사이의 간격 조절 */
+}
+.phone-input {
+  margin-right: 10px; /* 전화번호 입력 필드 간의 간격 조절 */
+}
+.select-group {
+  margin-bottom: 10px; /* 학부 및 전공 선택 드롭다운 그룹과 완료 버튼 사이의 간격 조절 */
 }
