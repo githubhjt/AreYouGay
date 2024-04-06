@@ -1,10 +1,3 @@
-let nameInput;
-let surnameInput;
-let yearDropdown, monthDropdown, dayDropdown;
-let genderDropdown;
-let phoneNumberInput1, phoneNumberInput2, phoneNumberInput3;
-let collegeDropdown, departmentDropdown;
-
 function setup() {
   noCanvas(); // 캔버스 생성 방지
 
@@ -13,27 +6,27 @@ function setup() {
 
   // 이름 입력 필드 그룹 생성
   let nameInputGroup = createDiv('').addClass('input-group');
-  nameInput = createInput('').attribute('placeholder', '이름 (First Name)');
-  surnameInput = createInput('').attribute('placeholder', '성 (Last Name)');
+  let nameInput = createInput('').attribute('placeholder', '이름 (First Name)').addClass('required-field');
+  let surnameInput = createInput('').attribute('placeholder', '성 (Last Name)').addClass('required-field');
   nameInput.parent(nameInputGroup);
   surnameInput.parent(nameInputGroup);
 
   // 생년월일 입력 드롭다운 생성
   let dobInputGroup = createDiv('').addClass('input-group');
 
-  yearDropdown = createSelect().addClass('dob-dropdown');
+  let yearDropdown = createSelect().addClass('dob-dropdown').addClass('required-field');
   yearDropdown.option('년도 (YY)');
   for (let year = 2024; year >= 1950; year--) {
     yearDropdown.option(year);
   }
 
-  monthDropdown = createSelect().addClass('dob-dropdown');
+  let monthDropdown = createSelect().addClass('dob-dropdown').addClass('required-field');
   monthDropdown.option('월 (MM)');
   for (let month = 1; month <= 12; month++) {
     monthDropdown.option(month < 10 ? '0' + month : month);
   }
 
-  dayDropdown = createSelect().addClass('dob-dropdown');
+  let dayDropdown = createSelect().addClass('dob-dropdown').addClass('required-field');
   dayDropdown.option('일 (DD)');
   for (let day = 1; day <= 31; day++) {
     dayDropdown.option(day);
@@ -43,7 +36,7 @@ function setup() {
   dayDropdown.parent(dobInputGroup);
 
   // 성별 선택 드롭다운 생성
-  genderDropdown = createSelect().addClass('gender-dropdown');
+  let genderDropdown = createSelect().addClass('gender-dropdown').addClass('required-field');
   genderDropdown.option('성별 (Gender)');
   genderDropdown.option('남성 (Male)');
   genderDropdown.option('여성 (Female)');
@@ -51,9 +44,9 @@ function setup() {
 
   // 전화번호 입력 필드 그룹 생성
   let phoneInputGroup = createDiv('').addClass('input-group');
-  phoneNumberInput1 = createInput('').attribute('maxlength', '3').attribute('placeholder', '010').addClass('phone-input');
-  phoneNumberInput2 = createInput('').attribute('maxlength', '4').attribute('placeholder', 'XXXX').addClass('phone-input');
-  phoneNumberInput3 = createInput('').attribute('maxlength', '4').attribute('placeholder', 'XXXX').addClass('phone-input');
+  let phoneNumberInput1 = createInput('').attribute('maxlength', '3').attribute('placeholder', '010').addClass('phone-input').addClass('required-field');
+  let phoneNumberInput2 = createInput('').attribute('maxlength', '4').attribute('placeholder', 'XXXX').addClass('phone-input').addClass('required-field');
+  let phoneNumberInput3 = createInput('').attribute('maxlength', '4').attribute('placeholder', 'XXXX').addClass('phone-input').addClass('required-field');
 
   // 전화번호 입력 시 다음 칸으로 포커스 이동하는 이벤트 리스너 추가
   phoneNumberInput1.input(() => {
@@ -81,14 +74,14 @@ function setup() {
   phoneNumberInput3.parent(phoneInputGroup);
 
   // 학부 선택 드롭다운 메뉴 생성
-  collegeDropdown = createSelect().addClass('college-dropdown');
+  let collegeDropdown = createSelect().addClass('college-dropdown').addClass('required-field');
   collegeDropdown.option('학부 선택');
   for (let college of ['공연학부 (Performance)', '영상학부 (Film & Media)', '음악학부 (Music)', '문예학부 (Writing)', '디자인학부 (Design)', '커뮤티케이션학부 (Communications)', '예술창작기초학부 (Arts Foundations)']) {
     collegeDropdown.option(college);
   }
 
   // 전공 선택 드롭다운 메뉴 생성 (비활성화)
-  departmentDropdown = createSelect().addClass('department-dropdown');
+  let departmentDropdown = createSelect().addClass('department-dropdown').addClass('required-field');
   departmentDropdown.option('전공 (Department)');
   departmentDropdown.attribute('disabled', ''); // 학부가 선택되지 않은 경우 비활성화
 
@@ -182,7 +175,7 @@ function setup() {
   let submitBtn = createButton('완료');
   submitBtn.mousePressed(() => {
     // 모든 필드가 입력되었는지 확인
-    if (
+    let isAnyFieldEmpty =
       nameInput.value() === '' ||
       surnameInput.value() === '' ||
       yearDropdown.value() === '년도 (YY)' ||
@@ -193,17 +186,32 @@ function setup() {
       phoneNumberInput2.value() === '' ||
       phoneNumberInput3.value() === '' ||
       collegeDropdown.value() === '학부 선택' ||
-      departmentDropdown.value() === '전공 (Department)'
-    ) {
+      departmentDropdown.value() === '전공 (Department)';
+
+    // 필드가 비어 있으면 해당 필드의 테두리 색을 빨간색으로 변경, 아니면 원래 색상으로 복구
+    nameInput.style('border-color', nameInput.value() === '' ? 'red' : '');
+    surnameInput.style('border-color', surnameInput.value() === '' ? 'red' : '');
+    yearDropdown.style('border-color', yearDropdown.value() === '년도 (YY)' ? 'red' : '');
+    monthDropdown.style('border-color', monthDropdown.value() === '월 (MM)' ? 'red' : '');
+    dayDropdown.style('border-color', dayDropdown.value() === '일 (DD)' ? 'red' : '');
+    genderDropdown.style('border-color', genderDropdown.value() === '성별 (Gender)' ? 'red' : '');
+    phoneNumberInput1.style('border-color', phoneNumberInput1.value() === '' ? 'red' : '');
+    phoneNumberInput2.style('border-color', phoneNumberInput2.value() === '' ? 'red' : '');
+    phoneNumberInput3.style('border-color', phoneNumberInput3.value() === '' ? 'red' : '');
+    collegeDropdown.style('border-color', collegeDropdown.value() === '학부 선택' ? 'red' : '');
+    departmentDropdown.style('border-color', departmentDropdown.value() === '전공 (Department)' ? 'red' : '');
+
+    if (isAnyFieldEmpty) {
       alert('정보를 모두 입력해주세요.');
-    } else {
-      console.log("이름(풀네임): " + surnameInput.value() + nameInput.value());
-      console.log("생년월일: " + yearDropdown.value() + "-" + (monthDropdown.value().length === 1 ? '0' + monthDropdown.value() : monthDropdown.value()) + "-" + dayDropdown.value());
-      console.log("성별: " + genderDropdown.value()); // 성별 출력 추가
-      console.log("휴대폰 번호: " + phoneNumberInput1.value() + "-" + phoneNumberInput2.value() + "-" + phoneNumberInput3.value());
-      console.log("학부: " + collegeDropdown.value());
-      console.log("전공: " + departmentDropdown.value());
+      return;
     }
+
+    console.log("이름(풀네임): " + surnameInput.value() + nameInput.value());
+    console.log("생년월일: " + yearDropdown.value() + "-" + (monthDropdown.value().length === 1 ? '0' + monthDropdown.value() : monthDropdown.value()) + "-" + dayDropdown.value());
+    console.log("성별: " + genderDropdown.value()); // 성별 출력 추가
+    console.log("휴대폰 번호: " + phoneNumberInput1.value() + "-" + phoneNumberInput2.value() + "-" + phoneNumberInput3.value());
+    console.log("학부: " + collegeDropdown.value());
+    console.log("전공: " + departmentDropdown.value());
   });
 
   // 완료 버튼을 모든 항목 맨 아래에 추가
