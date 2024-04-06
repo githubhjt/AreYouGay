@@ -23,27 +23,9 @@ function setup() {
   genderDropdown.option('여성 (Female)');
   genderDropdown.parent(centeredContent);
 
-  // 그룹 4: 년도, 월, 일 선택 드롭다운
-  let dobInputGroup = createDiv('').addClass('input-group');
-  let yearDropdown = createSelect().addClass('dob-dropdown').addClass('required-field').addClass('input-field');
-  yearDropdown.option('년도 (YY)');
-  for (let year = 2024; year >= 1950; year--) {
-    yearDropdown.option(year);
-  }
-  let monthDropdown = createSelect().addClass('dob-dropdown').addClass('required-field').addClass('input-field');
-  monthDropdown.option('월 (MM)');
-  for (let month = 1; month <= 12; month++) {
-    monthDropdown.option(month < 10 ? '0' + month : month);
-  }
-  let dayDropdown = createSelect().addClass('dob-dropdown').addClass('required-field').addClass('input-field');
-  dayDropdown.option('일 (DD)');
-  for (let day = 1; day <= 31; day++) {
-    dayDropdown.option(day);
-  }
-  yearDropdown.parent(dobInputGroup);
-  monthDropdown.parent(dobInputGroup);
-  dayDropdown.parent(dobInputGroup);
-  dobInputGroup.parent(centeredContent);
+  // 그룹 4: 생년월일 입력 필드
+  let dobInput = createInput('').attribute('type', 'text').attribute('placeholder', '생년월일 (YYYY-MM-DD)').addClass('required-field').addClass('input-field');
+  dobInput.parent(centeredContent);
 
   // 그룹 5: 학번 입력 필드
   let studentIdInput = createInput('').attribute('placeholder', '학번 (Student ID)').addClass('required-field').addClass('input-field');
@@ -74,9 +56,7 @@ function setup() {
       nameInput.value() === '' ||
       surnameInput.value() === '' ||
       genderDropdown.value() === '성별 (Gender)' ||
-      yearDropdown.value() === '년도 (YY)' ||
-      monthDropdown.value() === '월 (MM)' ||
-      dayDropdown.value() === '일 (DD)' ||
+      dobInput.value() === '' ||
       studentIdInput.value() === '' ||
       departmentDropdown.value() === '학부 (Department)' ||
       majorDropdown.value() === '전공 (Major)';
@@ -85,9 +65,7 @@ function setup() {
     nameInput.style('border-color', nameInput.value() === '' ? 'red' : '');
     surnameInput.style('border-color', surnameInput.value() === '' ? 'red' : '');
     genderDropdown.style('border-color', genderDropdown.value() === '성별 (Gender)' ? 'red' : '');
-    yearDropdown.style('border-color', yearDropdown.value() === '년도 (YY)' ? 'red' : '');
-    monthDropdown.style('border-color', monthDropdown.value() === '월 (MM)' ? 'red' : '');
-    dayDropdown.style('border-color', dayDropdown.value() === '일 (DD)' ? 'red' : '');
+    dobInput.style('border-color', dobInput.value() === '' ? 'red' : '');
     studentIdInput.style('border-color', studentIdInput.value() === '' ? 'red' : '');
     departmentDropdown.style('border-color', departmentDropdown.value() === '학부 (Department)' ? 'red' : '');
     majorDropdown.style('border-color', majorDropdown.value() === '전공 (Major)' ? 'red' : '');
@@ -101,7 +79,7 @@ function setup() {
     // 모든 필드가 입력되었을 때 실행할 동작 작성
     console.log("이름: " + surnameInput.value() + nameInput.value());
     console.log("성별: " + genderDropdown.value());
-    console.log("생년월일: " + yearDropdown.value() + "-" + (monthDropdown.value().length === 1 ? '0' + monthDropdown.value() : monthDropdown.value()) + "-" + dayDropdown.value());
+    console.log("생년월일: " + dobInput.value());
     console.log("학번: " + studentIdInput.value());
     console.log("학부: " + departmentDropdown.value());
     console.log("전공: " + majorDropdown.value());
@@ -113,9 +91,7 @@ function setup() {
     nameInput.value('');
     surnameInput.value('');
     genderDropdown.selected('성별 (Gender)');
-    yearDropdown.selected('년도 (YY)');
-    monthDropdown.selected('월 (MM)');
-    dayDropdown.selected('일 (DD)');
+    dobInput.value('');
     studentIdInput.value('');
     departmentDropdown.selected('학부 (Department)');
     majorDropdown.selected('전공 (Major)');
