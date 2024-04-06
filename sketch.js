@@ -49,7 +49,7 @@ function setup() {
   majorDropdownGroup.parent(centeredContent);
 
   // 그룹 8: 완료 버튼
-  let submitBtn = createButton('확인 (Confirm)').addClass('submit-btn'); // submit-btn 클래스 추가
+  let submitBtn = createButton('Confirm').addClass('submit-btn'); // submit-btn 클래스 추가
   submitBtn.mousePressed(() => {
     // 필수 입력 필드가 모두 입력되었는지 확인
     let isAnyFieldEmpty =

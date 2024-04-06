@@ -25,10 +25,10 @@ select {
   font-size: 16px; /* 폰트 크기 조정 */
 }
 
-/* 완료 버튼 */
+/*Confirm 버튼 */
 .submit-btn {
   width: calc(100% - 30px); /* 버튼 너비 조정 */
-  margin-bottom: 0; /* 완료 버튼의 밑 간격 제거 */
+  margin-bottom: 0; /* Confirm 버튼의 밑 간격 제거 */
   padding: 15px; /* 패딩 크기 조정 */
   background-color: #8b0000; /* 배경색 설정 (Darker Blood Red) */
   color: #ffffff; /* 텍스트 색상 설정 */
@@ -40,7 +40,7 @@ select {
   transition: background-color 0.3s; /* 배경색 변경 시 부드러운 전환 적용 */
 }
 
-/* 완료 버튼 호버 시 배경색 변경 */
+/* Confirm 버튼 호버 시 배경색 변경 */
 .submit-btn:hover {
   background-color: #a30000; /* 마우스 호버 시 배경색 변경 (Even Darker Blood Red) */
 }
