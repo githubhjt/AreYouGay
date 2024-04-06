@@ -131,7 +131,7 @@ submitBtn.mousePressed(() => {
   }
 
   // 모든 필드가 입력되었을 때 실행할 동작 작성
-  console.log("이름(풀네임): " + surnameInput.value() + nameInput.value());
+  console.log("이름: " + surnameInput.value() + nameInput.value());
   console.log("성별: " + genderDropdown.value());
   console.log("생년월일: " + yearDropdown.value() + "-" + (monthDropdown.value().length === 1 ? '0' + monthDropdown.value() : monthDropdown.value()) + "-" + dayDropdown.value());
   console.log("학번: " + studentIdInput.value());
