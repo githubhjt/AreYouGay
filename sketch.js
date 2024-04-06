@@ -21,6 +21,34 @@ function setup() {
   genderDropdown.option('Gender');
   genderDropdown.option('Male');
   genderDropdown.option('Female');
+  genderDropdown.option('Transgender');
+  genderDropdown.option('Bigender:female&male');
+  genderDropdown.option('Bigender:androgyne&neutrois');
+  genderDropdown.option('Bigender:thirdgender&demiboy');
+  genderDropdown.option('Androgyne');
+  genderDropdown.option('Neutrois');
+  genderDropdown.option('Agender/Genderless');
+  genderDropdown.option('Intergender');
+  genderDropdown.option('Demiboy');
+  genderDropdown.option('Demigirl');
+  genderDropdown.option('Demiagender:with demigirl');
+  genderDropdown.option('Thirdgender');
+  genderDropdown.option('Genderqueer/Non-binary');
+  genderDropdown.option('Pangender/Poligender');
+  genderDropdown.option('Epicene');
+  genderDropdown.option('Genderfluid');
+  genderDropdown.option('Genderfluid:female&male');
+  genderDropdown.option('Genderfluid:intergender&neutrois');
+  genderDropdown.option('Genderfluid:thirdgender&demigirl');
+  genderDropdown.option('Genderfluid:androgyne&female');
+  genderDropdown.option('Agender:version1');
+  genderDropdown.option('Agneder:version2');
+  genderDropdown.option('Agender:version gendervoid');
+  genderDropdown.option('Demiagender(with thirdgender');
+  genderDropdown.option('Femme');
+  genderDropdown.option('Butch');
+  genderDropdown.option('Travesti n-b');
+  genderDropdown.option('Aliagender');
   genderDropdown.parent(centeredContent);
 
   // 그룹 4: 생년월일 입력 필드
