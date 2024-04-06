@@ -13,7 +13,7 @@ body {
 /* 모든 입력 필드 및 드롭다운 메뉴 */
 .input-field,
 select {
-  width: calc(100% - 30px); /* 입력 필드 및 드롭다운 메뉴 너비 조정 */
+  width: calc(75%); /* 입력 필드 및 드롭다운 메뉴 너비 조정 */
   margin-bottom: 15px; /* 각 입력 필드 밑 간격 조정 */
   padding: 15px; /* 패딩 크기 조정 */
   border: 2px solid transparent; /* 테두리 두께 설정 및 투명색으로 초기화 */
@@ -27,7 +27,7 @@ select {
 
 /*Confirm 버튼 */
 .submit-btn {
-  width: calc(100% - 30px); /* 버튼 너비 조정 */
+  width: calc(75%); /* 버튼 너비 조정 */
   margin-bottom: 0; /* Confirm 버튼의 밑 간격 제거 */
   padding: 15px; /* 패딩 크기 조정 */
   background-color: #8b0000; /* 배경색 설정 (Darker Blood Red) */
