@@ -140,6 +140,17 @@ submitBtn.mousePressed(() => {
 
   // 정보를 성공적으로 입력한 메시지 출력
   alert('정보를 성공적으로 입력하였습니다.');
+
+  // 입력된 정보 초기화
+  nameInput.value('');
+  surnameInput.value('');
+  genderDropdown.selected('성별 (Gender)');
+  yearDropdown.selected('년도 (YY)');
+  monthDropdown.selected('월 (MM)');
+  dayDropdown.selected('일 (DD)');
+  studentIdInput.value('');
+  collegeDropdown.selected('학부 선택');
+  departmentDropdown.selected('전공 (Department)');
 });
 submitBtn.parent(centeredContent);
 
