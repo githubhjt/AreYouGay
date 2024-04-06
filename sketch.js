@@ -78,55 +78,57 @@ function setup() {
 
   // 그룹 8: 완료 버튼
   let submitBtn = createButton('Confirm').addClass('submit-btn'); // submit-btn 클래스 추가
-  submitBtn.mousePressed(() => {
-    // 필수 입력 필드가 모두 입력되었는지 확인
-    let isAnyFieldEmpty =
-      nameInput.value() === '' ||
-      surnameInput.value() === '' ||
-      genderDropdown.value() === '성별 (Gender)' ||
-      dobInput.value() === '' ||
-      studentIdInput.value() === '' ||
-      departmentDropdown.value() === '학부 (Department)' ||
-      majorDropdown.value() === '전공 (Major)';
+  // 완료 버튼 클릭 시 실행되는 함수
+submitBtn.mousePressed(() => {
+  // 필수 입력 필드가 모두 입력되었는지 확인
+  let isAnyFieldEmpty =
+    nameInput.value() === '' ||
+    surnameInput.value() === '' ||
+    genderDropdown.value() === '성별 (Gender)' ||
+    dobInput.value() === '' ||
+    studentIdInput.value() === '' ||
+    departmentDropdown.value() === '학부 (Department)' ||
+    majorDropdown.value() === '전공 (Major)';
 
-    // 필수 입력 필드가 비어 있으면 해당 필드의 테두리 색을 빨간색으로 변경
-    nameInput.style('border-color', nameInput.value() === '' ? 'red' : '');
-    surnameInput.style('border-color', surnameInput.value() === '' ? 'red' : '');
-    genderDropdown.style('border-color', genderDropdown.value() === '성별 (Gender)' ? 'red' : '');
-    dobInput.style('border-color', dobInput.value() === '' ? 'red' : '');
-    studentIdInput.style('border-color', studentIdInput.value() === '' ? 'red' : '');
-    departmentDropdown.style('border-color', departmentDropdown.value() === '학부 (Department)' ? 'red' : '');
-    majorDropdown.style('border-color', majorDropdown.value() === '전공 (Major)' ? 'red' : '');
+  // 필수 입력 필드가 비어 있으면 해당 필드의 테두리 색을 빨간색으로 변경
+  nameInput.style('border-color', nameInput.value() === '' ? 'red' : '');
+  surnameInput.style('border-color', surnameInput.value() === '' ? 'red' : '');
+  genderDropdown.style('border-color', genderDropdown.value() === '성별 (Gender)' ? 'red' : '');
+  dobInput.style('border-color', dobInput.value() === '' ? 'red' : '');
+  studentIdInput.style('border-color', studentIdInput.value() === '' ? 'red' : '');
+  departmentDropdown.style('border-color', departmentDropdown.value() === '학부 (Department)' ? 'red' : '');
+  majorDropdown.style('border-color', majorDropdown.value() === '전공 (Major)' ? 'red' : '');
 
-    // 필수 입력 필드가 하나라도 비어 있으면 팝업창 띄움
-    if (isAnyFieldEmpty) {
-      alert('정보를 모두 입력해주세요.');
-      return;
-    }
+  // 필수 입력 필드가 하나라도 비어 있으면 팝업창 띄움
+  if (isAnyFieldEmpty) {
+    alert('정보를 모두 입력해주세요.');
+    return;
+  }
 
-    // 모든 필드가 입력되었을 때 실행할 동작 작성
-    console.log("이름: " + surnameInput.value() + nameInput.value());
-    console.log("성별: " + genderDropdown.value());
-    console.log("생년월일: " + dobInput.value());
-    console.log("학번: " + studentIdInput.value());
-    console.log("학부: " + departmentDropdown.value());
-    console.log("전공: " + majorDropdown.value());
+  // 모든 필드가 입력되었을 때 실행할 동작 작성
+  console.log("이름: " + surnameInput.value() + nameInput.value());
+  console.log("성별: " + genderDropdown.value());
+  console.log("생년월일: " + dobInput.value());
+  console.log("학번: " + studentIdInput.value());
+  console.log("학부: " + departmentDropdown.value());
+  console.log("전공: " + majorDropdown.value());
 
-    // 정보를 성공적으로 입력한 메시지 출력
-    alert('정보를 성공적으로 입력하였습니다.');
+  // 정보를 성공적으로 입력한 메시지 출력
+  alert('정보를 성공적으로 입력하였습니다.');
 
-    // 입력된 정보 초기화
-    nameInput.value('');
-    surnameInput.value('');
-    genderDropdown.selected('성별 (Gender)');
-    dobInput.value('');
-    studentIdInput.value('');
-    departmentDropdown.selected('학부 (Department)');
-    majorDropdown.selected('전공 (Major)');
+  // 입력된 정보 초기화
+  nameInput.value('');
+  surnameInput.value('');
+  genderDropdown.selected('Gender'); // Gender 드롭다운 초기화
+  dobInput.value('');
+  studentIdInput.value('');
+  departmentDropdown.selected('학부 (Department)');
+  majorDropdown.selected('전공 (Major)');
 
-    // 전공 드롭다운 비활성화
-    majorDropdown.attribute('disabled', '');
-  });
+  // 전공 드롭다운 비활성화
+  majorDropdown.attribute('disabled', '');
+});
+
   submitBtn.parent(centeredContent);
 
   // 학부 선택 이벤트 리스너 설정
