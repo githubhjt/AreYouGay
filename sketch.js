@@ -151,4 +151,24 @@ function setup() {
     majorDropdown.option('전공 (Major)');
     majorDropdown.parent(majorDropdownGroup);
   }
+
+  // 생년월일 입력 필드에 입력 이벤트 리스너 설정
+  dobInput.input(formatDateInput);
+}
+
+// 생년월일 입력 필드에 날짜 형식 지정하는 함수
+function formatDateInput() {
+  let input = this.value();
+  // 입력된 값에서 숫자와 '-'만 남기고 나머지는 제거
+  let formattedInput = input.replace(/[^\d-]/g, '');
+  // 숫자 4개를 입력하면 자동으로 '-' 추가
+  if (formattedInput.length === 4) {
+    formattedInput += '-';
+  }
+  // 숫자 7번째 자리에 '-' 추가
+  else if (formattedInput.length === 7) {
+    formattedInput += '-';
+  }
+  // 형식이 YYYY-MM-DD 형태가 되도록 입력 필드에 값 설정
+  this.value(formattedInput);
 }
