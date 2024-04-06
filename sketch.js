@@ -66,38 +66,6 @@ function setup() {
   majorDropdown.parent(majorDropdownGroup);
   majorDropdownGroup.parent(centeredContent);
 
-  // 학부 선택 이벤트 리스너 설정
-  departmentDropdown.changed(() => {
-    let selectedDepartment = departmentDropdown.value(); // 선택된 학부
-
-    switch (selectedDepartment) {
-      case '공연학부 (Performance)':
-        enableMajorDropdown(['연극 (Theatre)', '연기 (Acting)', '무용 (Dance)']);
-        break;
-      case '영상학부 (Film & Media)':
-        enableMajorDropdown(['영화 (Film)', '방송영상 (Television)', '디지털아트 (Digital Arts)']);
-        break;
-      case '음악학부 (Music)':
-        enableMajorDropdown(['실용음악 (Applied Music)', '한국음악 (Korean Music)']);
-        break;
-      case '문예학부 (Writing)':
-        enableMajorDropdown(['문예창작 (Creative Writing)', '극작 (Dramatic Writing)']);
-        break;
-      case '디자인학부 (Design)':
-        enableMajorDropdown(['사진 (Photography)', '시각디자인 (Visual Design)', '공간디자인 (Interior Design)']);
-        break;
-      case '커뮤티케이션학부 (Communications)':
-        enableMajorDropdown(['광고창작 (Creative Advertising)', '예술경영 (Arts Management)']);
-        break;
-      case '예술창작기초학부 (Arts Foundations)':
-        disableMajorDropdown();
-        break;
-      default:
-        disableMajorDropdown();
-        break;
-    }
-  });
-
   // 그룹 8: 완료 버튼
   let submitBtn = createButton('확인 (Confirm)').addClass('submit-btn'); // submit-btn 클래스 추가
   submitBtn.mousePressed(() => {
@@ -151,10 +119,43 @@ function setup() {
     studentIdInput.value('');
     departmentDropdown.selected('학부 (Department)');
     majorDropdown.selected('전공 (Major)');
+
+    // 전공 드롭다운 비활성화
+    majorDropdown.attribute('disabled', '');
   });
   submitBtn.parent(centeredContent);
 
+  // 학부 선택 이벤트 리스너 설정
+  departmentDropdown.changed(() => {
+    let selectedDepartment = departmentDropdown.value(); // 선택된 학부
 
+    switch (selectedDepartment) {
+      case '공연학부 (Performance)':
+        enableMajorDropdown(['연극 (Theatre)', '연기 (Acting)', '무용 (Dance)']);
+        break;
+      case '영상학부 (Film & Media)':
+        enableMajorDropdown(['영화 (Film)', '방송영상 (Television)', '디지털아트 (Digital Arts)']);
+        break;
+      case '음악학부 (Music)':
+        enableMajorDropdown(['실용음악 (Applied Music)', '한국음악 (Korean Music)']);
+        break;
+      case '문예학부 (Writing)':
+        enableMajorDropdown(['문예창작 (Creative Writing)', '극작 (Dramatic Writing)']);
+        break;
+      case '디자인학부 (Design)':
+        enableMajorDropdown(['사진 (Photography)', '시각디자인 (Visual Design)', '공간디자인 (Interior Design)']);
+        break;
+      case '커뮤티케이션학부 (Communications)':
+        enableMajorDropdown(['광고창작 (Creative Advertising)', '예술경영 (Arts Management)']);
+        break;
+      case '예술창작기초학부 (Arts Foundations)':
+        disableMajorDropdown();
+        break;
+      default:
+        disableMajorDropdown();
+        break;
+    }
+  });
 
   // 전공 선택 드롭다운을 활성화하고 해당하는 전공 옵션을 추가하는 함수
   function enableMajorDropdown(majors) {
