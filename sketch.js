@@ -78,7 +78,10 @@ function setup() {
 
   // 그룹 8: 완료 버튼
   let submitBtn = createButton('Confirm').addClass('submit-btn'); // submit-btn 클래스 추가
-  // 완료 버튼 클릭 시 실행되는 함수
+  
+  // 정보 입력 횟수를 저장할 함수
+  let informationCounter = 0;
+
 // 완료 버튼 클릭 시 실행되는 함수
 submitBtn.mousePressed(() => {
   // 필수 입력 필드가 모두 입력되었는지 확인
@@ -106,7 +109,10 @@ submitBtn.mousePressed(() => {
     return;
   }
 
+  informationCounter++; //informationCounter에 대한 값 +1씩.
+
   // 모든 필드가 입력되었을 때 실행할 동작 작성
+  console.log("Information" + informationCounter);
   console.log("이름: " + surnameInput.value() + nameInput.value());
   console.log("성별: " + genderDropdown.value());
   console.log("생년월일: " + dobInput.value());
