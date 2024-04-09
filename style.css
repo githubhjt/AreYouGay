@@ -25,6 +25,13 @@ select {
   font-size: 16px; /* 폰트 크기 조정 */
 }
 
+.dob-input {
+  width: calc(23.4%); /* 생년월일 입력 칸의 너비를 조정하여 한 행에 나열 */
+  margin-right: 7px; /* 입력 칸 사이 간격 조정 */
+  margin-left: 7px;
+}
+
+
 /*Confirm 버튼 */
 .submit-btn {
   width: calc(75%); /* 버튼 너비 조정 */
