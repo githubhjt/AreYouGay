@@ -112,7 +112,7 @@ submitBtn.mousePressed(() => {
   informationCounter++; //informationCounter에 대한 값 +1씩.
 
   // 모든 필드가 입력되었을 때 실행할 동작 작성
-  console.log("Information" + informationCounter);
+  console.log("Info" + informationCounter);
   console.log("이름: " + surnameInput.value() + nameInput.value());
   console.log("성별: " + genderDropdown.value());
   console.log("생년월일: " + dobInput.value());
