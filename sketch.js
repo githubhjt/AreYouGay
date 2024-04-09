@@ -51,9 +51,15 @@ function setup() {
   genderDropdown.option('Aliagender');
   genderDropdown.parent(centeredContent);
 
-  // 그룹 4: 생년월일 입력 필드
-  let dobInput = createInput('').attribute('type', 'text').attribute('placeholder', 'Birth (YYYY-MM-DD)').addClass('required-field').addClass('input-field');
-  dobInput.parent(centeredContent);
+  // 생년월일 그룹: 3개의 입력 필드
+  let dobInputGroup = createDiv('').addClass('input-group');
+  let yearInput = createInput('').attribute('placeholder', 'YYYY').addClass('required-field').addClass('input-field').addClass('dob-input');
+  let monthInput = createInput('').attribute('placeholder', 'MM').addClass('required-field').addClass('input-field').addClass('dob-input');
+  let dayInput = createInput('').attribute('placeholder', 'DD').addClass('required-field').addClass('input-field').addClass('dob-input');
+  yearInput.parent(dobInputGroup);
+  monthInput.parent(dobInputGroup);
+  dayInput.parent(dobInputGroup);
+  dobInputGroup.parent(centeredContent);
 
   // 그룹 5: 학번 입력 필드
   let studentIdInput = createInput('').attribute('placeholder', 'Student ID').addClass('required-field').addClass('input-field');
@@ -89,7 +95,9 @@ submitBtn.mousePressed(() => {
     nameInput.value() === '' ||
     surnameInput.value() === '' ||
     genderDropdown.value() === 'Gender' || // 수정된 부분
-    dobInput.value() === '' ||
+    yearInput.value() === '' ||
+    monthInput.value() === '' ||
+    dayInput.value() === '' ||
     studentIdInput.value() === '' ||
     departmentDropdown.value() === 'Department (학부)' ||
     majorDropdown.value() === 'Major (전공)';
@@ -98,7 +106,9 @@ submitBtn.mousePressed(() => {
   nameInput.style('border-color', nameInput.value() === '' ? 'red' : '');
   surnameInput.style('border-color', surnameInput.value() === '' ? 'red' : '');
   genderDropdown.style('border-color', genderDropdown.value() === 'Gender' ? 'red' : ''); // 수정된 부분
-  dobInput.style('border-color', dobInput.value() === '' ? 'red' : '');
+  yearInput.style('border-color', yearInput.value() === '' ? 'red' : '');
+  monthInput.style('border-color', monthInput.value() === '' ? 'red' : '');
+  dayInput.style('border-color', dayInput.value() === '' ? 'red' : '');
   studentIdInput.style('border-color', studentIdInput.value() === '' ? 'red' : '');
   departmentDropdown.style('border-color', departmentDropdown.value() === 'Department (학부)' ? 'red' : '');
   majorDropdown.style('border-color', majorDropdown.value() === 'Major (전공)' ? 'red' : '');
@@ -115,7 +125,7 @@ submitBtn.mousePressed(() => {
   console.log("Info" + informationCounter);
   console.log("이름: " + surnameInput.value() + nameInput.value());
   console.log("성별: " + genderDropdown.value());
-  console.log("생년월일: " + dobInput.value());
+  console.log("생년월일: " + dobInputGroup.value());
   console.log("학번: " + studentIdInput.value());
   console.log("학부: " + departmentDropdown.value());
   console.log("전공: " + majorDropdown.value());
@@ -127,7 +137,9 @@ submitBtn.mousePressed(() => {
   nameInput.value('');
   surnameInput.value('');
   genderDropdown.selected('Gender'); // Gender 드롭다운 초기화
-  dobInput.value('');
+  yearInput.value('');
+  monthInput.value('');
+  dayInput.value('');
   studentIdInput.value('');
   departmentDropdown.selected('Department (학부)');
   majorDropdown.selected('Major (전공)');
@@ -189,23 +201,17 @@ submitBtn.mousePressed(() => {
     majorDropdown.parent(majorDropdownGroup);
   }
 
-  // 생년월일 입력 필드에 입력 이벤트 리스너 설정
-  dobInput.input(formatDateInput);
-}
+// 생년월일 입력 필드에 입력 이벤트 리스너 설정
+yearInput.input(formatDateInput);
+monthInput.input(formatDateInput);
+dayInput.input(formatDateInput);
 
 // 생년월일 입력 필드에 날짜 형식 지정하는 함수
 function formatDateInput() {
-  let input = this.value();
+  let input1 = this.value();
   // 입력된 값에서 숫자와 '-'만 남기고 나머지는 제거
-  let formattedInput = input.replace(/[^\d-]/g, '');
-  // 숫자 4개를 입력하면 자동으로 '-' 추가
-  if (formattedInput.length === 4) {
-    formattedInput += '-';
-  }
-  // 숫자 7번째 자리에 '-' 추가
-  else if (formattedInput.length === 7) {
-    formattedInput += '-';
-  }
+  let formattedInput = input1.replace(/[^\d-]/g, '');
   // 형식이 YYYY-MM-DD 형태가 되도록 입력 필드에 값 설정
   this.value(formattedInput);
+}
 }
