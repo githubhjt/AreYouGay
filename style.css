@@ -50,12 +50,13 @@ select {
   cursor: pointer; /* 마우스 커서를 포인터로 변경 */
   font-family: 'Arial', sans-serif; /* Sans-serif 폰트 설정 */
   font-size: 18px; /* 폰트 크기 조정 */
+  /* font-weight: bold; 글씨체를 굵게 설정 */
   transition: background-color 0.3s; /* 배경색 변경 시 부드러운 전환 적용 */
 }
 
 /* Confirm 버튼 호버 시 배경색 변경 */
 .submit-btn:hover {
-  background-color: #a30000; /* 마우스 호버 시 배경색 변경 (Even Darker Blood Red) */
+  background-color: #b00000; /* 마우스 호버 시 배경색 변경 (Even Darker Blood Red) */
 }
 
 /* 필수 입력 필드가 누락된 경우 빨간색 테두리 설정 */
