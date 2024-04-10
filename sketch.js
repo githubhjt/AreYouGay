@@ -134,7 +134,7 @@ function setup() {
   majorDropdownGroup.parent(centeredContent);
 
   // 그룹 8: 완료 버튼
-  let submitBtn = createButton("C O N F I R M").addClass("submit-btn"); // submit-btn 클래스 추가
+  let submitBtn = createButton("CONFIRM").addClass("submit-btn"); // submit-btn 클래스 추가
 
   // 정보 입력 횟수를 저장할 함수
   let informationCounter = 0;
