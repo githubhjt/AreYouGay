@@ -278,6 +278,9 @@ function setup() {
     majorDropdown.parent(majorDropdownGroup);
   }
 
+  yearInput.addClass('year-input');
+  monthInput.addClass('month-input');
+
   // 생년월일 입력 필드에 입력 이벤트 리스너 설정
   yearInput.input(formatDateInput);
   monthInput.input(formatDateInput);

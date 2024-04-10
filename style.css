@@ -26,17 +26,23 @@ select {
 }
 
 .dob-input {
-  width: calc(23.4%); /* 생년월일 입력 칸의 너비를 조정하여 한 행에 나열 */
-  margin-right: 7px; /* 입력 칸 사이 간격 조정 */
-  margin-left: 7px;
+  width: calc(23.66%); /* 생년월일 입력 칸의 너비를 조정하여 한 행에 나열 */
 }
 
+/* dob-input에 margin-right, margin-left을 한 번에 넣지 않음으로써 YYYYleft랑 DDright에도 공백이 생기는 것을 방지 */
+.year-input {
+  margin-right: calc(2%); /* YYYY 입력 필드 오른쪽에 공백 추가 */
+}
+
+.month-input {
+  margin-right: calc(2%); /* MM 입력 필드 오른쪽에 공백 추가 */
+}
 
 /*Confirm 버튼 */
 .submit-btn {
   width: calc(75%); /* 버튼 너비 조정 */
-  margin-bottom: 0; /* Confirm 버튼의 밑 간격 제거 */
-  padding: 15px; /* 패딩 크기 조정 */
+  margin-top: calc(5%); /* Confirm 버튼의 밑 간격 제거 */
+  padding: 20px; /* 패딩 크기 조정 */
   background-color: #8b0000; /* 배경색 설정 (Darker Blood Red) */
   color: #ffffff; /* 텍스트 색상 설정 */
   border: 2px solid transparent; /* 테두리 두께 설정 및 투명색으로 초기화 */
