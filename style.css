@@ -26,7 +26,7 @@ select {
   color: #767676; /* 텍스트 색상 설정 */
   box-sizing: border-box;
   /* font-family: 'Arial', sans-serif; Sans-serif 폰트 설정 */
-  font-size: 16px; /* 폰트 크기 조정 */
+  font-size: 100%; /* 폰트 크기 조정 */
 }
 
 .dob-input {
@@ -54,7 +54,7 @@ select {
   border-radius: 30px; /* 버튼 모서리를 둥글게 조정 */
   cursor: pointer; /* 마우스 커서를 포인터로 변경 */
   /* font-family: 'Arial', sans-serif; Sans-serif 폰트 설정 */
-  font-size: 16px; /* 폰트 크기 조정 */
+  font-size: 105%; /* 폰트 크기 조정 */
   /* font-weight: bold; 글씨체를 굵게 설정 */
   transition: background-color 0.3s; /* 배경색 변경 시 부드러운 전환 적용 */
 }
@@ -66,7 +66,7 @@ select {
 
 /* 필수 입력 필드가 누락된 경우 빨간색 테두리 설정 */
 .required-field:invalid {
-  border-color: rgb(190, 0, 0); /* Blood Red */
+  border-color: rgb(54, 46, 46); /* Blood Red */
 }
 
 /* 비활성화된 입력 필드 및 드롭다운 메뉴 */
