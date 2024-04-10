@@ -6,15 +6,14 @@ function setup() {
 
   // "RED NOTICE" 추가
   let redNoticeGroup = createElement("h2", "RED" + " " + "NOTICE");
-  let redNoticeInput = createDiv("")
-    .addClass("red-notice");
+  let redNoticeInput = createDiv("").addClass("red-notice");
   redNoticeInput.parent(redNoticeGroup);
   redNoticeGroup.parent(centeredContent);
   // "RED NOTICE" 글씨 크기 관리
   redNoticeGroup.style("font-size", "250%");
   // "RED NOTICE" 색상 관리
   redNoticeGroup.style("color", "rgb(160, 0, 0)"); // 빨간색으로 변경
-  redNoticeGroup.style("font-family", "Helvetica")
+  redNoticeGroup.style("font-family", "Helvetica");
 
   // 그룹 1: 이름 입력 필드
   let nameInputGroup = createDiv("").addClass("input-group");
@@ -197,7 +196,9 @@ function setup() {
     console.log("전공: " + majorDropdown.value());
 
     // 정보를 성공적으로 입력한 메시지 출력
-    alert("Information has been successfully leaked : 정보를 제공해주셔서 감사합니다");
+    alert(
+      "Information has been successfully leaked : 정보를 제공해주셔서 감사합니다"
+    );
 
     // 입력된 정보 초기화
     nameInput.value("");
@@ -290,8 +291,8 @@ function setup() {
     majorDropdown.parent(majorDropdownGroup);
   }
 
-  yearInput.addClass('year-input');
-  monthInput.addClass('month-input');
+  yearInput.addClass("year-input");
+  monthInput.addClass("month-input");
 
   // 생년월일 입력 필드에 입력 이벤트 리스너 설정
   yearInput.input(formatDateInput);
