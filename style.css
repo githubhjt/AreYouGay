@@ -10,7 +10,7 @@ body {
   margin-top: 50px; /* 위쪽 여백 추가 */
 }
 
-.red-notice{
+.red-notice {
   margin-bottom: 40px;
 }
 
@@ -45,9 +45,9 @@ select {
 /*Confirm 버튼 */
 .submit-btn {
   width: calc(75%); /* 버튼 너비 조정 */
-  margin-top: calc(6%); /* Confirm 버튼의 밑 간격 제거 */
+  margin-top: calc(4%); /* Confirm 버튼의 밑 간격 제거 */
   margin-bottom: calc(10%);
-  padding: 20px; /* 패딩 크기 조정 */
+  padding: 15px; /* 패딩 크기 조정 */
   background-color: rgb(140, 0, 0); /* 배경색 설정 (Darker Blood Red) */
   color: #ffffff; /* 텍스트 색상 설정 */
   border: 2px solid transparent; /* 테두리 두께 설정 및 투명색으로 초기화 */
@@ -61,7 +61,11 @@ select {
 
 /* Confirm 버튼 호버 시 배경색 변경 */
 .submit-btn:hover {
-  background-color: rgb(190, 0, 0); /* 마우스 호버 시 배경색 변경 (Even Darker Blood Red) */
+  background-color: rgb(
+    190,
+    0,
+    0
+  ); /* 마우스 호버 시 배경색 변경 (Even Darker Blood Red) */
 }
 
 /* 필수 입력 필드가 누락된 경우 빨간색 테두리 설정 */
