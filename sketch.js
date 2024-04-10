@@ -4,19 +4,17 @@ function setup() {
   // 중앙 정렬을 위한 컨테이너 생성
   let centeredContent = createDiv("").addClass("centered-content");
 
-  // centeredContent 글씨체 한 번에 다 관리하기
-  centeredContent.style("font-family", "Arial, sans-serif");
-
   // "RED NOTICE" 추가
   let redNoticeGroup = createElement("h2", "RED" + " " + "NOTICE");
   let redNoticeInput = createDiv("")
     .addClass("red-notice");
   redNoticeInput.parent(redNoticeGroup);
   redNoticeGroup.parent(centeredContent);
-  // "RED NOTICE" 글씨체 관리
-  redNoticeGroup.style("font-size", "calc(330%)");
+  // "RED NOTICE" 글씨 크기 관리
+  redNoticeGroup.style("font-size", "250%");
   // "RED NOTICE" 색상 관리
-  redNoticeGroup.style("color", "rgb(170, 0, 0)"); // 빨간색으로 변경
+  redNoticeGroup.style("color", "rgb(160, 0, 0)"); // 빨간색으로 변경
+  redNoticeGroup.style("font-family", "Helvetica")
 
   // 그룹 1: 이름 입력 필드
   let nameInputGroup = createDiv("").addClass("input-group");
