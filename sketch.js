@@ -169,7 +169,7 @@ function setup() {
 
     // 필수 입력 필드가 하나라도 비어 있으면 팝업창 띄움
     if (isAnyFieldEmpty) {
-      alert("정보를 모두 입력해주세요.");
+      alert("Please enter all the information : 정보를 모두 입력해주세요");
       return;
     }
 
@@ -185,7 +185,7 @@ function setup() {
     console.log("전공: " + majorDropdown.value());
 
     // 정보를 성공적으로 입력한 메시지 출력
-    alert("정보를 성공적으로 입력하였습니다.");
+    alert("Information has been successfully leaked : 정보를 제공해주셔서 감사합니다");
 
     // 입력된 정보 초기화
     nameInput.value("");
