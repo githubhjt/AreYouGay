@@ -93,6 +93,29 @@ function setup() {
   dayInput.parent(dobInputGroup);
   dobInputGroup.parent(centeredContent);
 
+  yearInput.addClass("year-input");
+  monthInput.addClass("month-input");
+
+  // 생년월일 입력 필드에 입력 이벤트 리스너 설정
+  yearInput.input(formatDateInput);
+  monthInput.input(formatDateInput);
+  dayInput.input(formatDateInput);
+
+  // 생년월일 입력 필드에 날짜 형식 지정하는 함수
+  function formatDateInput() {
+    let input1 = this.value();
+    // 입력된 값에서 숫자와 '-'만 남기고 나머지는 제거
+    let formattedInput = input1.replace(/[^\d-]/g, "");
+    // 형식이 YYYY-MM-DD 형태가 되도록 입력 필드에 값 설정
+    this.value(formattedInput);
+  }
+  // 년도 입력 필드에 글자 수 제한 설정
+  yearInput.elt.maxLength = 4;
+  // 월 입력 필드에 글자 수 제한 설정
+  monthInput.elt.maxLength = 2;
+  // 일 입력 필드에 글자 수 제한 설정
+  dayInput.elt.maxLength = 2;
+
   // 그룹 5: 학번 입력 필드
   let studentIdInput = createInput("")
     .attribute("placeholder", "Student ID")
@@ -289,22 +312,5 @@ function setup() {
       .attribute("disabled", "");
     majorDropdown.option("Major (전공)");
     majorDropdown.parent(majorDropdownGroup);
-  }
-
-  yearInput.addClass("year-input");
-  monthInput.addClass("month-input");
-
-  // 생년월일 입력 필드에 입력 이벤트 리스너 설정
-  yearInput.input(formatDateInput);
-  monthInput.input(formatDateInput);
-  dayInput.input(formatDateInput);
-
-  // 생년월일 입력 필드에 날짜 형식 지정하는 함수
-  function formatDateInput() {
-    let input1 = this.value();
-    // 입력된 값에서 숫자와 '-'만 남기고 나머지는 제거
-    let formattedInput = input1.replace(/[^\d-]/g, "");
-    // 형식이 YYYY-MM-DD 형태가 되도록 입력 필드에 값 설정
-    this.value(formattedInput);
   }
 }
