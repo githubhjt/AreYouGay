@@ -116,12 +116,36 @@ function setup() {
   // 일 입력 필드에 글자 수 제한 설정
   dayInput.elt.maxLength = 2;
 
+  yearInput.input(() => {
+    // yearInput에 입력된 값의 길이가 4일 때
+    if (yearInput.value().length === 4) {
+      // monthInput 입력 필드로 포커스를 이동
+      monthInput.elt.focus();
+    }
+  });
+
+  monthInput.input(() => {
+    // monthInput에 입력된 값의 길이가 2일 때
+    if (monthInput.value().length === 2) {
+      // dayInput 입력 필드로 포커스를 이동
+      dayInput.elt.focus();
+    }
+  });
+
   // 그룹 5: 학번 입력 필드
   let studentIdInput = createInput("")
     .attribute("placeholder", "Student ID")
     .addClass("required-field")
     .addClass("input-field");
   studentIdInput.parent(centeredContent);
+
+  dayInput.input(() => {
+    // dayInput에 입력된 값의 길이가 2일 때
+    if (dayInput.value().length === 2) {
+      // studentIdInput 입력 필드로 포커스를 이동
+      studentIdInput.elt.focus();
+    }
+  });
 
   // 그룹 6: 학부 선택 드롭다운
   let departmentInputGroup = createDiv("").addClass("input-group");
