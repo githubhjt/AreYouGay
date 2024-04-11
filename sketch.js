@@ -73,17 +73,20 @@ function setup() {
 
   // 생년월일 그룹: 3개의 입력 필드
   let dobInputGroup = createDiv("").addClass("input-group");
-  let yearInput = createInput("")
+  let yearInput = createElement("input")
+    .attribute("inputmode", "numeric")
     .attribute("placeholder", "YYYY")
     .addClass("required-field")
     .addClass("input-field")
     .addClass("dob-input");
-  let monthInput = createInput("")
+  let monthInput = createElement("input")
+    .attribute("inputmode", "numeric")
     .attribute("placeholder", "MM")
     .addClass("required-field")
     .addClass("input-field")
     .addClass("dob-input");
-  let dayInput = createInput("")
+  let dayInput = createElement("input")
+    .attribute("inputmode", "numeric")
     .attribute("placeholder", "DD")
     .addClass("required-field")
     .addClass("input-field")
