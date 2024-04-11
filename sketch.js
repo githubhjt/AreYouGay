@@ -144,7 +144,8 @@ function setup() {
   });
 
   // 그룹 5: 학번 입력 필드
-  let studentIdInput = createInput("")
+  let studentIdInput = createElement("input")
+    .attribute("inputmode", "numeric")
     .attribute("placeholder", "Student ID")
     .addClass("required-field")
     .addClass("input-field");
