@@ -10,7 +10,7 @@ function setup() {
   redNoticeInput.parent(redNoticeGroup);
   redNoticeGroup.parent(centeredContent);
   // "RED NOTICE" 글씨 크기 관리
-  redNoticeGroup.style("font-size", "250%");
+  redNoticeGroup.style("font-size", "320%");
   // "RED NOTICE" 색상 관리
   redNoticeGroup.style("color", "rgb(160, 0, 0)"); // 빨간색으로 변경
   redNoticeGroup.style("font-family", "Helvetica");
