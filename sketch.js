@@ -5,7 +5,7 @@ function setup() {
   let centeredContent = createDiv("").addClass("centered-content");
 
   // "RED NOTICE" 추가
-  let redNoticeGroup = createElement("h2", "숭늉게이 판독기");
+  let redNoticeGroup = createElement("h2", "게이 판독기");
   let redNoticeInput = createDiv("").addClass("red-notice");
   redNoticeInput.parent(redNoticeGroup);
   redNoticeGroup.parent(centeredContent);
