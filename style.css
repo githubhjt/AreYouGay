@@ -119,9 +119,10 @@ select:disabled {
 
 /* 복사 버튼 */
 #copyButton {
+  display: block; /* 버튼을 블록 요소로 변경하여 중앙 정렬 가능 */
   width: 75%; /* Confirm 버튼 너비와 맞춤 */
   padding: 15px;
-  margin-top: 15px;
+  margin: 15px auto 0 auto; /* 상단 여백을 추가하고, 좌우 자동 정렬로 중앙 배치 */
   background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet); /* 무지개 배경색 */
   color: #ffffff;
   border: none;

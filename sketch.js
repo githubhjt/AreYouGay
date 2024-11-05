@@ -204,6 +204,32 @@ function setup() {
   departmentDropdown.value() === "학부가 같은 우리는 운명?" ||
   majorDropdown.value() === "전공까지 같으면 우리 같이 다니는거에요";
 
+  // 필수 입력 필드가 비어 있으면 해당 필드의 테두리 색을 빨간색으로 변경
+  nameInput.style("border-color", nameInput.value() === "" ? "red" : "");
+  surnameInput.style(
+    "border-color",
+    surnameInput.value() === "" ? "red" : ""
+  );
+  genderDropdown.style(
+    "border-color",
+    genderDropdown.value() === "당신의 취향이 궁금해요...우리 둘만의 비밀ㅎㅎ" ? "red" : ""
+  ); // 수정된 부분
+  yearInput.style("border-color", yearInput.value() === "" ? "red" : "");
+  monthInput.style("border-color", monthInput.value() === "" ? "red" : "");
+  dayInput.style("border-color", dayInput.value() === "" ? "red" : "");
+  studentIdInput.style(
+    "border-color",
+    studentIdInput.value() === "" ? "red" : ""
+  );
+  departmentDropdown.style(
+    "border-color",
+    departmentDropdown.value() === "학부가 같은 우리는 운명?" ? "red" : ""
+  );
+  majorDropdown.style(
+    "border-color",
+    majorDropdown.value() === "전공까지 같으면 우리 같이 다니는거에요" ? "red" : ""
+  );
+
 if (isAnyFieldEmpty) {
   alert("Please enter all the information : 정보를 모두 입력해주세요");
   return;
