@@ -97,7 +97,8 @@ select:disabled {
   text-align: left;
   white-space: pre-wrap; /* 줄바꿈을 유지하여 텍스트가 보기 좋게 출력되도록 설정 */
   padding: 0 5%; /* 양옆 여백 추가 */
-  border: 2px solid rgb(140, 0, 0); /* Dark red border for emphasis */
+  border: 2px solid; /* 테두리를 무지개 그라데이션으로 변경 */
+  border-image: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet) 1; /* 무지개 테두리 */
   font-family: 'Arial', sans-serif; /* 폰트 스타일 */
 }
 
@@ -121,16 +122,16 @@ select:disabled {
   width: 75%; /* Confirm 버튼 너비와 맞춤 */
   padding: 15px;
   margin-top: 15px;
-  background-color: rgb(140, 0, 0); /* Confirm 버튼과 동일한 배경색 */
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet); /* 무지개 배경색 */
   color: #ffffff;
   border: none;
   border-radius: 30px; /* Confirm 버튼과 동일한 둥근 모서리 */
   cursor: pointer;
   font-size: 105%;
-  transition: background-color 0.3s; /* 부드러운 전환 */
+  transition: background 0.3s; /* 부드러운 전환 */
 }
 
-/* 복사 버튼 호버 시 배경색 변경 */
+/* 복사 버튼 호버 시 약간 밝은 무지개 색상으로 변경 */
 #copyButton:hover {
-  background-color: rgb(190, 0, 0); /* Hover 시 배경색 */
+  background: linear-gradient(90deg, #ff6666, #ffcc66, #ffff66, #66ff66, #6666ff, #9933ff, #cc66ff);
 }
