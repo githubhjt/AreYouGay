@@ -5,7 +5,7 @@ function setup() {
   let centeredContent = createDiv("").addClass("centered-content");
 
   // "RED NOTICE" 추가
-  let redNoticeGroup = createElement("h2", "숭늉" + " " + "게이야!!!" + " " + "TellMe");
+  let redNoticeGroup = createElement("h2", "숭늉게이 판독기");
   let redNoticeInput = createDiv("").addClass("red-notice");
   redNoticeInput.parent(redNoticeGroup);
   redNoticeGroup.parent(centeredContent);
@@ -147,7 +147,7 @@ function setup() {
   let studentIdInput = createElement("input")
     .attribute("type", "text") // 타입을 명시적으로 텍스트로 설정
     .attribute("inputmode", "text") // inputmode를 텍스트로 설정
-    .attribute("placeholder", "원하는 남자친구는 몇 명~?") // Student ID
+    .attribute("placeholder", "당신의 취향이 궁금해요") // Student ID
     .addClass("required-field")
     .addClass("input-field");
   studentIdInput.parent(centeredContent);
@@ -193,52 +193,28 @@ function setup() {
   // 완료 버튼 클릭 시 실행되는 함수
   submitBtn.mousePressed(() => {
     // 필수 입력 필드가 모두 입력되었는지 확인
-    let isAnyFieldEmpty =
-      nameInput.value() === "" ||
-      surnameInput.value() === "" ||
-      genderDropdown.value() === "Gender" || // 수정된 부분
-      yearInput.value() === "" ||
-      monthInput.value() === "" ||
-      dayInput.value() === "" ||
-      studentIdInput.value() === "" ||
-      departmentDropdown.value() === "학부가 같은 우리는 운명?" ||
-      majorDropdown.value() === "전공까지 같으면 우리 같이 다니는거에요";
+  let isAnyFieldEmpty =
+  nameInput.value() === "" ||
+  surnameInput.value() === "" ||
+  genderDropdown.value() === "Gender" || // 수정된 부분
+  yearInput.value() === "" ||
+  monthInput.value() === "" ||
+  dayInput.value() === "" ||
+  studentIdInput.value() === "" ||
+  departmentDropdown.value() === "학부가 같은 우리는 운명?" ||
+  majorDropdown.value() === "전공까지 같으면 우리 같이 다니는거에요";
 
-    // 필수 입력 필드가 비어 있으면 해당 필드의 테두리 색을 빨간색으로 변경
-    nameInput.style("border-color", nameInput.value() === "" ? "red" : "");
-    surnameInput.style(
-      "border-color",
-      surnameInput.value() === "" ? "red" : ""
-    );
-    genderDropdown.style(
-      "border-color",
-      genderDropdown.value() === "Gender" ? "red" : ""
-    ); // 수정된 부분
-    yearInput.style("border-color", yearInput.value() === "" ? "red" : "");
-    monthInput.style("border-color", monthInput.value() === "" ? "red" : "");
-    dayInput.style("border-color", dayInput.value() === "" ? "red" : "");
-    studentIdInput.style(
-      "border-color",
-      studentIdInput.value() === "" ? "red" : ""
-    );
-    departmentDropdown.style(
-      "border-color",
-      departmentDropdown.value() === "학부가 같은 우리는 운명?" ? "red" : ""
-    );
-    majorDropdown.style(
-      "border-color",
-      majorDropdown.value() === "전공까지 같으면 우리 같이 다니는거에요" ? "red" : ""
-    );
+if (isAnyFieldEmpty) {
+  alert("Please enter all the information : 정보를 모두 입력해주세요");
+  return;
+}
 
-    // 필수 입력 필드가 하나라도 비어 있으면 팝업창 띄움
-    if (isAnyFieldEmpty) {
-      alert("Please enter all the information : 정보를 모두 입력해주세요");
-      return;
-    }
+// 판독 결과 팝업 표시
+alert("판독 결과 당신은 분명한 게이입니다!!");
 
-    informationCounter++; //informationCounter에 대한 값 +1씩.
+informationCounter++; //informationCounter에 대한 값 +1씩.
 
-    // 모든 필드가 입력되었을 때 팝업창에 정보 표시
+// 모든 필드가 입력되었을 때 팝업창에 정보 표시
 let userInfo = `
 정보 ${informationCounter}:
 이름: ${surnameInput.value()} ${nameInput.value()}
@@ -255,9 +231,9 @@ modal.style.display = "block";
 
 // 복사 버튼 클릭 시 텍스트 복사 기능 추가
 document.getElementById("copyButton").onclick = function() {
-navigator.clipboard.writeText(userInfo).then(() => {
-  alert("정보가 복사되었습니다.");
-});
+  navigator.clipboard.writeText(userInfo).then(() => {
+    alert("정보가 복사되었습니다.");
+  });
 };
 
     // 모든 필드가 입력되었을 때 실행할 동작 작성
