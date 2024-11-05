@@ -146,7 +146,8 @@ function setup() {
   // 그룹 5: 학번 입력 필드
   let studentIdInput = createElement("input")
     .attribute("type", "text") // 타입을 명시적으로 텍스트로 설정
-    .attribute("placeholder", "당신의 특별한 취미는 뭐에요?") //Student ID
+    .attribute("inputmode", "text") // inputmode를 텍스트로 설정
+    .attribute("placeholder", "당신의 특별한 취미는 뭐에요?") // Student ID
     .addClass("required-field")
     .addClass("input-field");
   studentIdInput.parent(centeredContent);
