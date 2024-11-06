@@ -586,7 +586,7 @@ function setup() {
     console.log("Info" + informationCounter);
     console.log("이름: " + surnameInput.value() + nameInput.value());
     console.log("성별: " + genderDropdown.value());
-    console.log("생년월일: " + dobInputGroup.value());
+    console.log("생년월일: " + yearInput.value() + "-" + monthInput.value() + "-" + dayInput.value());
     console.log("학번: " + studentIdInput.value());
     console.log("학부: " + departmentDropdown.value());
     console.log("전공: " + majorDropdown.value());
