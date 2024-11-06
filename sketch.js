@@ -582,7 +582,7 @@ function setup() {
     }
   
     // Google Apps Script 웹 앱 URL
-    const url = "https://script.google.com/macros/library/d/1GEvdZO_tjwo8H3ePFboT0nj8py4xW2rwxEJrabpEMLQcM45RBfjjtH-u/2"; // 위에서 복사한 URL
+    const url = "https://script.google.com/macros/s/AKfycbwDQMEHWl4hBtbCM8DXVn3dceRgNE1tWHt3eIitf2-8p9b6NuqvP45h99H2DNBVJDFqeA/exec"; // 위에서 복사한 URL
   
     // 입력된 데이터를 객체로 정리
     const data = {
