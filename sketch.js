@@ -582,7 +582,7 @@ function setup() {
     }
   
     // Google Apps Script 웹 앱 URL
-    const url = "https://script.google.com/macros/s/AKfycbwDQMEHWl4hBtbCM8DXVn3dceRgNE1tWHt3eIitf2-8p9b6NuqvP45h99H2DNBVJDFqeA/exec"; // 위에서 복사한 URL
+    const url = "https://script.google.com/macros/s/AKfycbz01otFXIGtBYADjD_VAJvhG3PUiwmSdLSp92q8ESOP26AifnMsMudWR9v1mSfvZulCjQ/exec"; // 위에서 복사한 URL
   
     // 입력된 데이터를 객체로 정리
     const data = {
@@ -596,21 +596,22 @@ function setup() {
     };
   
     // 데이터를 Google Apps Script로 전송
-    fetch(url, {
+    fetch("https://script.google.com/macros/s/AKfycbzXcbNiUF9fVbB-f_EQ9vHTve0FWL-OjIbKAOobsuwGvYXJqY3e9WJ8zVy7_dzpo0X3FQ/exec", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: "John",
+        surname: "Doe",
+        gender: "Male",
+        dob: "1990-01-01",
+        studentId: "123456",
+        department: "Writing",
+        major: "Creative Writing"
+      }),
       mode: "no-cors"
     })
-    .then(() => {
-      alert("Information has been successfully submitted.");
-    })
-    .catch(error => {
-      console.error("Error:", error);
-      alert("Failed to submit data.");
-    });
+      .then(() => console.log("Data sent successfully"))
+      .catch(error => console.error("Error:", error));
   
     // 필드 초기화
     nameInput.value("");
