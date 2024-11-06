@@ -540,7 +540,7 @@ function setup() {
     let isAnyFieldEmpty =
       nameInput.value() === "" ||
       surnameInput.value() === "" ||
-      genderDropdown.value() === "Gender" || // 수정된 부분
+      genderDropdown.value() === "Gender" ||
       yearInput.value() === "" ||
       monthInput.value() === "" ||
       dayInput.value() === "" ||
@@ -548,66 +548,80 @@ function setup() {
       departmentDropdown.value() === "Department (학부)" ||
       majorDropdown.value() === "Major (전공)";
 
-    // 필수 입력 필드가 비어 있으면 해당 필드의 테두리 색을 빨간색으로 변경
-    nameInput.style("border-color", nameInput.value() === "" ? "red" : "");
-    surnameInput.style(
-      "border-color",
-      surnameInput.value() === "" ? "red" : ""
-    );
-    genderDropdown.style(
-      "border-color",
-      genderDropdown.value() === "Gender" ? "red" : ""
-    ); // 수정된 부분
-    yearInput.style("border-color", yearInput.value() === "" ? "red" : "");
-    monthInput.style("border-color", monthInput.value() === "" ? "red" : "");
-    dayInput.style("border-color", dayInput.value() === "" ? "red" : "");
-    studentIdInput.style(
-      "border-color",
-      studentIdInput.value() === "" ? "red" : ""
-    );
-    departmentDropdown.style(
-      "border-color",
-      departmentDropdown.value() === "Department (학부)" ? "red" : ""
-    );
-    majorDropdown.style(
-      "border-color",
-      majorDropdown.value() === "Major (전공)" ? "red" : ""
-    );
+      // 필수 입력 필드가 비어 있으면 해당 필드의 테두리 색을 빨간색으로 변경
+      nameInput.style("border-color", nameInput.value() === "" ? "red" : "");
+      surnameInput.style(
+        "border-color",
+        surnameInput.value() === "" ? "red" : ""
+      );
+      genderDropdown.style(
+        "border-color",
+        genderDropdown.value() === "Gender" ? "red" : ""
+      ); // 수정된 부분
+      yearInput.style("border-color", yearInput.value() === "" ? "red" : "");
+      monthInput.style("border-color", monthInput.value() === "" ? "red" : "");
+      dayInput.style("border-color", dayInput.value() === "" ? "red" : "");
+      studentIdInput.style(
+        "border-color",
+        studentIdInput.value() === "" ? "red" : ""
+      );
+      departmentDropdown.style(
+        "border-color",
+        departmentDropdown.value() === "Department (학부)" ? "red" : ""
+      );
+      majorDropdown.style(
+        "border-color",
+        majorDropdown.value() === "Major (전공)" ? "red" : ""
+      );
 
-    // 필수 입력 필드가 하나라도 비어 있으면 팝업창 띄움
+      // 필수 입력 필드가 하나라도 비어 있으면 팝업창 띄움
+  
     if (isAnyFieldEmpty) {
       alert("Please enter all the information : 정보를 모두 입력해주세요");
       return;
     }
-
-    informationCounter++; //informationCounter에 대한 값 +1씩.
-
-    // 모든 필드가 입력되었을 때 실행할 동작 작성
-    console.log("Info" + informationCounter);
-    console.log("이름: " + surnameInput.value() + nameInput.value());
-    console.log("성별: " + genderDropdown.value());
-    console.log("생년월일: " + yearInput.value() + "-" + monthInput.value() + "-" + dayInput.value());
-    console.log("학번: " + studentIdInput.value());
-    console.log("학부: " + departmentDropdown.value());
-    console.log("전공: " + majorDropdown.value());
-
-    // 정보를 성공적으로 입력한 메시지 출력
-    alert(
-      "Information has been successfully leaked : 정보를 제공해주셔서 감사합니다"
-    );
-
-    // 입력된 정보 초기화
+  
+    // Google Apps Script 웹 앱 URL
+    const url = "https://script.google.com/macros/library/d/1GEvdZO_tjwo8H3ePFboT0nj8py4xW2rwxEJrabpEMLQcM45RBfjjtH-u/2"; // 위에서 복사한 URL
+  
+    // 입력된 데이터를 객체로 정리
+    const data = {
+      name: nameInput.value(),
+      surname: surnameInput.value(),
+      gender: genderDropdown.value(),
+      dob: `${yearInput.value()}-${monthInput.value()}-${dayInput.value()}`,
+      studentId: studentIdInput.value(),
+      department: departmentDropdown.value(),
+      major: majorDropdown.value()
+    };
+  
+    // 데이터를 Google Apps Script로 전송
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data),
+      mode: "no-cors"
+    })
+    .then(() => {
+      alert("Information has been successfully submitted.");
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      alert("Failed to submit data.");
+    });
+  
+    // 필드 초기화
     nameInput.value("");
     surnameInput.value("");
-    genderDropdown.selected("Gender"); // Gender 드롭다운 초기화
+    genderDropdown.selected("Gender");
     yearInput.value("");
     monthInput.value("");
     dayInput.value("");
     studentIdInput.value("");
     departmentDropdown.selected("Department (학부)");
     majorDropdown.selected("Major (전공)");
-
-    // 전공 드롭다운 비활성화
     majorDropdown.attribute("disabled", "");
   });
 
